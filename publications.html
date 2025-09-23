@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publications - Nora Wolcott</title>
+    <style>
+        body {
+            cursor: url('cursor.png') 0 0, auto;  /* Custom cursor as default */
+            font-family: 'Palatino Linotype', 'Baskerville Old Face', Baskerville, 'Times New Roman', serif;
+            max-width: 800px;
+            margin: 60px auto;
+            line-height: 1.8;
+            color: #333;
+            background-image: url('background.png');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            padding: 30px;
+        }
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 240, 0.8);
+            padding: 30px 80px;
+            border-radius: 8px;
+        }
+        .site-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .site-title a {
+            color: #000000;
+            text-decoration: none;
+            font-size: 1.7em;
+            font-weight: normal;
+            cursor: url('cursor.png') 0 0, pointer;  /* Custom cursor for interactive elements */
+            padding: 0;
+        }
+        .site-title a:hover {
+            color: #7b6c94;
+        }
+        .nav-container {
+            background-color: rgba(255, 255, 240, 0.72);  /* Reduced from 0.8 to 0.72 */
+            padding: 10px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .nav-tabs li a {
+            color: #000000;
+            text-decoration: none;
+            font-size: 1.3em;
+            font-weight: 530;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: color 0.3s ease;
+            cursor: url('cursor.png') 0 0, pointer;
+        }
+        .nav-tabs li a.active {
+            background-color: transparent;
+            color: inherit;
+        }
+        /* Custom hover colors for each nav item */
+        .nav-tabs li a[href="aboutme.html"]:hover {
+            color: #a12d2e;  /* Dark red */
+        }
+        .nav-tabs li a[href="research.html"]:hover {
+            color: #da691d;  /* Orange */
+        }
+        .nav-tabs li a[href="publications.html"]:hover {
+            color: #DAA520;  /* Back to original yellow */
+        }
+        .nav-tabs li a[href="contact.html"]:hover {
+            color: #01714d;  /* Green */
+        }
+        .nav-tabs li a[href="NoraWolcott_CV.pdf"]:hover {
+            color: #0366b9;  /* Blue */
+        }
+        h1 {
+            text-align: center;
+            font-size: 2em;
+            color: #2c3e50;
+            font-weight: normal;
+            margin-bottom: 10px;  /* Reduced spacing after title */
+        }
+        .publications {
+            margin-top: 40px;
+        }
+        .year-section {
+            margin-top: 40px;
+        }
+        .year-section h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #7b6c94;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .publication-item {
+            margin: 50px 0;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background-color: rgba(255, 255, 240, 0.72);
+            border-radius: 8px;
+            max-width: 90%;
+            margin-bottom: 10px;
+            text-align: left;
+            line-height: 1.4;
+            color: #000000;
+        }
+        .publication-title {
+            font-size: 1.2em;
+            text-decoration: underline;
+            margin-bottom: 5px;
+        }
+        .publication-title a {
+            color: #000000 !important;
+            text-decoration: underline;
+        }
+        .publication-title a:hover {
+            color: #7b6c94 !important;
+        }
+        .publication-authors {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+        .read-here {
+            background-color: #7b6c94;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: background-color 0.3s;
+        }
+        .read-here:hover {
+            background-color: #635679;
+        }
+        .publications-list {
+            margin-top: 8px;  /* Reduced from 10px */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .pub-year-group {
+            display: flex;
+            margin-bottom: 20px;
+            position: relative;
+            min-height: fit-content;
+        }
+        .year-header {
+            color: #2c3e50;
+            font-size: 1.7em;
+            font-weight: bold;
+            width: 100px;
+            text-align: center;
+            position: absolute;
+            left: 0;
+            top: 50%;  /* Align with middle of publication group */
+            transform: translateY(-50%);  /* Center perfectly */
+        }
+        .pub-entries {
+            flex-grow: 1;
+            padding-left: 120px;  /* 100px for year width + 20px spacing */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .publication-item p {
+            margin: 0;
+            color: #000000;  /* Ensure paragraphs are also black */
+        }
+        .publication-item a {
+            color: #7b6c94;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .publication-item a:hover {
+            color: #2c3e50;
+        }
+        .scholar-link {
+            color: #000000;  /* Made scholar link black */
+            text-decoration: none;
+        }
+        .scholar-link:hover {
+            color: #7b6c94;
+        }
+        /* Tighter clickable areas for other elements */
+        a, button, input[type="submit"] {
+            padding: 2px 4px;
+            cursor: url('cursor.png') 0 0, pointer;  /* Custom cursor for interactive elements */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="site-title">
+            <a href="aboutme.html">Nora Wolcott, PhD</a>
+        </h1>
+        <nav class="nav-container">
+            <ul class="nav-tabs">
+                <li><a href="aboutme.html">About</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="publications.html" class="active">Publications</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="NoraWolcott_CV.pdf" target="_blank">CV</a></li>
+            </ul>
+        </nav>
+
+        <h1><a href="https://scholar.google.com/citations?user=C74rCEEAAAAJ&hl=en" target="_blank" class="scholar-link">Publications</a></h1>
+        
+        <div class="publications-list">
+            <div class="publication-item">
+                <div class="publication-title">
+                    <a href="https://doi.org/10.1016/j.neuron.2025.04.014" target="_blank">The estrous cycle modulates hippocampal spine dynamics, dendritic processing, and spatial coding</a>
+                </div>
+                <div class="publication-authors">
+                    <strong>Wolcott, N. S.</strong>, Redman, W. T., Karpinska, M., Jacobs, E. G., & Goard, M. J. <em>Neuron</em> (2025) [<a href="pdfs/wolcott_2025.pdf" target="_blank">PDF</a>]
+                </div>
+            </div>
+
+            <div class="publication-item">
+                <div class="publication-title">
+                    <a href="https://doi.org/10.7554/eLife.75391" target="_blank">Long-term transverse imaging of the hippocampus with glass microperiscopes</a>
+                </div>
+                <div class="publication-authors">
+                    Redman, W. T., <strong>Wolcott, N. S.</strong>, Montelisciani, L., Luna, G., Marks, T. D., Sit, K. K., Yu, C.-H., Smith, S., & Goard, M. J. <em>eLife</em> (2022) [<a href="pdfs/redman_2022.pdf" target="_blank">PDF</a>]
+                </div>
+            </div>
+
+            <div class="publication-item">
+                <div class="publication-title">
+                    <a href="https://doi.org/10.1038/s41598-022-22392-w" target="_blank">Automated classification of estrous stage in rodents using deep learning</a>
+                </div>
+                <div class="publication-authors">
+                    <strong>Wolcott, N. S.</strong>, Sit, K. K., Raimondi, G., Hodges, T., Shansky, R. M., Galea, L. A. M., Ostroff, L. E., & Goard, M. J. <em>Scientific Reports</em> (2022) [<a href="pdfs/wolcott_2022.pdf" target="_blank">PDF</a>]
+                </div>
+            </div>
+
+            <div class="publication-item">
+                <div class="publication-title">
+                    <a href="https://doi.org/10.1038/s41593-020-0684-9" target="_blank">High-fat food biases hypothalamic and mesolimbic expression of consummatory drives</a>
+                </div>
+                <div class="publication-authors">
+                    Mazzone, C. M., Liang-Guallpa, J., Li, C., <strong>Wolcott, N. S.</strong>, Boone, M. H., Southern, M., Kobzar, N. P., Salgado, I. de A., Reddy, D. M., Sun, F., Zhang, Y., Li, Y., Cui, G., & Krashes, M. J. <em>Nature Neuroscience</em> (2020) [<a href="pdfs/mazzone_2020.pdf" target="_blank">PDF</a>]
+                </div>
+            </div>
+
+            <div class="publication-item">
+                <div class="publication-title">
+                    <a href="https://doi.org/10.1242/jeb.208793" target="_blank">Bringing immersive science to undergraduate laboratory courses using CRISPR gene knockouts in frogs and butterflies</a>
+                </div>
+                <div class="publication-authors">
+                    Martin, A., <strong>Wolcott, N. S.</strong>, & O'Connell, L. A. <em>Journal of Experimental Biology</em> (2020) [<a href="pdfs/martin_2020.pdf" target="_blank">PDF</a>]
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

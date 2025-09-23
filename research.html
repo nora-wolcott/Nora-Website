@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research - Nora Wolcott</title>
+    <style>
+        body {
+            cursor: url('cursor.png') 0 0, auto;  /* Custom cursor as default */
+            font-family: 'Palatino Linotype', 'Baskerville Old Face', Baskerville, 'Times New Roman', serif;
+            max-width: 800px;
+            margin: 60px auto;
+            line-height: 1.8;
+            color: #333;
+            background-image: url('background.png');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            padding: 30px;
+        }
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 240, 0.8);
+            padding: 30px 80px;
+            border-radius: 8px;
+        }
+        .site-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .site-title a {
+            color: #000000;
+            text-decoration: none;
+            font-size: 1.7em;
+            font-weight: normal;
+            padding: 0;
+            cursor: url('cursor.png') 0 0, pointer;  /* Custom cursor for interactive elements */
+        }
+        .site-title a:hover {
+            color: #7b6c94;
+        }
+        .nav-container {
+            background-color: rgba(255, 255, 240, 0.72);  /* Reduced from 0.8 to 0.72 */
+            padding: 10px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .nav-tabs li a {
+            color: #000000;
+            text-decoration: none;
+            font-size: 1.3em;
+            font-weight: 530;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: color 0.3s ease;
+            cursor: url('cursor.png') 0 0, pointer;
+        }
+        .nav-tabs li a.active {
+            background-color: transparent;
+            color: inherit;
+        }
+        /* Custom hover colors for each nav item */
+        .nav-tabs li a[href="aboutme.html"]:hover {
+            color: #a12d2e;  /* Dark red */
+        }
+        .nav-tabs li a[href="research.html"]:hover {
+            color: #da691d;  /* Orange */
+        }
+        .nav-tabs li a[href="publications.html"]:hover {
+            color: #DAA520;  /* Back to original yellow */
+        }
+        .nav-tabs li a[href="contact.html"]:hover {
+            color: #01714d;  /* Green */
+        }
+        .nav-tabs li a[href="NoraWolcott_CV.pdf"]:hover {
+            color: #0366b9;  /* Blue */
+        }
+        h1 {
+            text-align: center;
+            font-size: 2em;
+            color: #2c3e50;
+            font-weight: normal;
+        }
+        p {
+            font-size: 1.2em;
+            text-align: justify;
+        }
+        .research-section {
+            margin: 50px 0;
+            padding: 30px;
+            background-color: rgba(255, 255, 240, 0.72);
+            border-radius: 8px;
+        }
+        .research-image {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            display: block;
+            margin: 0 auto 30px auto;
+            border-radius: 8px;
+        }
+        .research-section h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #7b6c94;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        /* White glove pointer for interactive elements */
+        a, button, input[type="submit"] {
+            padding: 2px 4px;
+            cursor: url('cursor.png') 0 0, pointer;  /* Custom cursor for interactive elements */
+        }
+        .scholar-link {
+            color: #000000;
+            text-decoration: none;
+        }
+        .scholar-link:hover {
+            color: #7b6c94;
+        }
+        .research-section a {
+            color: #7b6c94;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .research-section a:hover {
+            color: #635679;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="site-title">
+            <a href="aboutme.html">Nora Wolcott, PhD</a>
+        </h1>
+        <nav class="nav-container">
+            <ul class="nav-tabs">
+                <li><a href="aboutme.html">About</a></li>
+                <li><a href="research.html" class="active">Research</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="NoraWolcott_CV.pdf" target="_blank">CV</a></li>
+            </ul>
+        </nav>
+
+        <h1><a href="https://scholar.google.com/citations?user=C74rCEEAAAAJ&hl=en" target="_blank" class="scholar-link">Research</a></h1>
+        
+        <div class="research-section">
+            <img src="research/abstract.jpg" alt="Abstract visualization" class="research-image">
+            <h2>Endocrine-Modulated Hippocampal Plasticity</h2>
+            <p>
+                The hippocampus is densely populated with estrogen receptors, and ex vivo work has demonstrated that apical CA1 pyramidal cell dendritic spine morphology is dynamically modulated by estrogen. What are the functional implications of hippocampal plasticity across the estrous cycle and pregnancy? In vivo longitudinal imaging of dendritic spines in densely-sampled mice, coupled with spatial representation analysis, reveals that both neuronal morphology and spatial navigation are modulated by sex steroid hormone fluctuations.
+            </p>
+        </div>
+
+        <div class="research-section">
+            <img src="research/estrousnet.jpg" alt="Estrous network visualization" class="research-image">
+            <h2>Automated Classification of Estrous Cycle Stage</h2>
+            <p>
+                Estrous cycle phase is identified by vaginal lavage and cytology, however manual classification tends to be error-prone. For neuroendocrine research, accurate and rapid identification of estrous phase is critical. EstrousNet is a novel deep learning pipeline for unbiased classification of estrous stage. To emulate human classification more closely, the EstrousNet alogirthm fits test images to an archetypal estrous cycle, avoiding common confusion errors. Final classifications surpass expert accuracy and speed. EstrousNet is available as a free MATLAB-based software <a href="https://github.com/ucsb-goard-lab/EstrousNet" target="_blank">here</a>.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

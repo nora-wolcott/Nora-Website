@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Nora Wolcott</title>
+    <style>
+        body {
+            cursor: url('cursor.png') 0 0, auto;  /* Custom cursor as default */
+            font-family: 'Palatino Linotype', 'Baskerville Old Face', Baskerville, 'Times New Roman', serif;
+            max-width: 800px;
+            margin: 60px auto;
+            line-height: 1.8;
+            color: #333;
+            background-image: url('background.png');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            padding: 30px;
+        }
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 240, 0.8);
+            padding: 30px 80px;
+            border-radius: 8px;
+        }
+        .site-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .site-title a {
+            color: #000000;
+            text-decoration: none;
+            font-size: 1.7em;
+            font-weight: normal;
+            cursor: url('cursor.png') 0 0, pointer;
+            padding: 0;
+        }
+        .site-title a:hover {
+            color: #7b6c94;
+        }
+        .nav-container {
+            background-color: rgba(255, 255, 240, 0.72);  /* Reduced from 0.8 to 0.72 */
+            padding: 10px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .nav-tabs li a {
+            color: #000000;
+            text-decoration: none;
+            font-size: 1.3em;
+            font-weight: 530;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: color 0.3s ease;
+            cursor: url('cursor.png') 0 0, pointer;
+        }
+        .nav-tabs li a.active {
+            background-color: transparent;
+            color: inherit;
+        }
+        /* Custom hover colors for each nav item */
+        .nav-tabs li a[href="aboutme.html"]:hover {
+            color: #a12d2e;  /* Dark red */
+        }
+        .nav-tabs li a[href="research.html"]:hover {
+            color: #da691d;  /* Orange */
+        }
+        .nav-tabs li a[href="publications.html"]:hover {
+            color: #DAA520;  /* Back to original yellow */
+        }
+        .nav-tabs li a[href="contact.html"]:hover {
+            color: #01714d;  /* Green */
+        }
+        .nav-tabs li a[href="NoraWolcott_CV.pdf"]:hover {
+            color: #0366b9;  /* Blue */
+        }
+        h1 {
+            text-align: center;
+            font-size: 2em;
+            color: #2c3e50;
+            font-weight: normal;
+        }
+        .contact-section {
+            margin: 50px auto;
+            padding: 30px;
+            background-color: rgba(248, 249, 250, 0.7);
+            border-radius: 8px;
+        }
+        .contact-info {
+            text-align: center;
+            font-size: 1.2em;
+            line-height: 1.8;
+        }
+        .contact-info a {
+            color: #7b6c94;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .contact-info a:hover {
+            color: #635679;
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .social-links a {
+            color: #2c3e50;
+            text-decoration: none;
+            font-size: 1.1em;
+            padding: 10px 20px;
+            border: 2px solid #7b6c94;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        .social-links a:hover {
+            background-color: #7b6c94;
+            color: white;
+        }
+        /* Tighter clickable areas for other elements */
+        a, button, input[type="submit"] {
+            padding: 2px 4px;
+            cursor: url('cursor.png') 0 0, pointer;
+        }
+        .contact-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 100px;
+            padding: 20px;
+        }
+        .envelope {
+            position: relative;
+        }
+        .envelope-image {
+            width: 800px;
+            height: auto;
+        }
+        .contact-links {
+            text-align: center;
+            width: 100%;
+            margin-top: 60px;  /* Add space between nav and content */
+        }
+        .email-text {
+            display: block;
+            font-size: 1.7em;
+            font-family: 'Palatino Linotype', serif;
+            color: #2c3e50;
+            text-decoration: none;
+            margin-bottom: 30px;  /* Increased space between email and social icons */
+            transition: color 0.3s ease;
+            text-transform: lowercase;
+        }
+        .email-text:hover {
+            color: #7b6c94;
+        }
+        .social-line {
+            display: flex;
+            justify-content: center;
+            gap: 30px;  /* Increased gap between social icons */
+        }
+        .inline-icon {
+            width: 30px;  /* Slightly larger icons */
+            height: 30px;
+            transition: transform 0.3s ease;
+        }
+        .inline-icon:hover {
+            transform: scale(1.1);
+        }
+
+        /* Add styles for the content section */
+        .content-section {
+            background-color: rgba(255, 255, 240, 0.72);
+            padding: 40px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        /* Add styles for the contact layout */
+        .contact-layout {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        .contact-headshot {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 50%;  /* Changed from 8px to 50% for circular shape */
+        }
+        .contact-info-container {
+            flex: 1;
+        }
+        .contact-info-container h2 {
+            color: #2c3e50;
+            font-weight: normal;
+            font-size: 2em;
+            margin: 0 0 15px 0;
+        }
+        .contact-info-container p {
+            color: #333;
+            margin: 5px 0;
+            font-size: 1.1em;
+            line-height: 1.5;
+        }
+        .contact-info-container a {
+            color: #7b6c94;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .contact-info-container a:hover {
+            color: #635679;
+        }
+
+        /* Add style for centered icons section */
+        .icons-section {
+            text-align: center;
+            width: 100%;
+            margin-top: 40px;  /* Space between contact info and icons */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="site-title">
+            <a href="aboutme.html">Nora Wolcott, PhD</a>
+        </h1>
+        <nav class="nav-container">
+            <ul class="nav-tabs">
+                <li><a href="aboutme.html">About</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+                <li><a href="NoraWolcott_CV.pdf" target="_blank">CV</a></li>
+            </ul>
+        </nav>
+
+        <div class="content-section">
+            <div class="contact-layout">
+                <img src="contact_headshot.jpg" alt="Nora Wolcott" class="contact-headshot">
+                <div class="contact-info-container">
+                    <h2>Nora Wolcott, PhD</h2>
+                    <p>Dept of Neurobiology</p>
+                    <p>Harvard Medical School</p>
+                    <p><a href="mailto:nora.wolcott@gmail.com">nora.wolcott@gmail.com</a></p>
+                </div>
+            </div>
+            
+            <div class="icons-section">
+                <div class="social-line">
+                    <a href="https://x.com/norawolcott" target="_blank" class="social-link">
+                        <img src="icons/twitter_icon.png" alt="Twitter" class="inline-icon">
+                    </a>
+                    <a href="https://www.linkedin.com/in/nora-wolcott-27672110b" target="_blank" class="social-link">
+                        <img src="icons/linkedin_icon.png" alt="LinkedIn" class="inline-icon">
+                    </a>
+                    <a href="https://github.com/NoraWolcott" target="_blank" class="social-link">
+                        <img src="icons/github_icon.png" alt="GitHub" class="inline-icon">
+                    </a>
+                    <a href="https://www.researchgate.net/profile/Nora-Wolcott-2" target="_blank" class="social-link">
+                        <img src="icons/researchgate_icon.png" alt="ResearchGate" class="inline-icon">
+                    </a>
+                    <a href="https://orcid.org/0000-0001-8055-2718" target="_blank" class="social-link">
+                        <img src="icons/orcid_icon.png" alt="ORCID" class="inline-icon">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

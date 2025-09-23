@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Nora Wolcott</title>
+    <style>
+        body {
+            cursor: url('cursor.png') 0 0, auto;  /* Custom cursor as default */
+            font-family: 'Palatino Linotype', 'Baskerville Old Face', Baskerville, 'Times New Roman', serif;
+            max-width: 800px;
+            margin: 60px auto;
+            line-height: 1.8;
+            color: #333;
+            background-image: url('background.png');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            padding: 30px;
+        }
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 240, 0.8);
+            padding: 30px 80px;
+            border-radius: 8px;
+        }
+        .site-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .site-title a {
+            color: #000000;
+            text-decoration: none;
+            font-size: 1.7em;
+            font-weight: normal;
+            cursor: url('cursor.png') 0 0, pointer;
+            padding: 0;
+        }
+        .site-title a:hover {
+            color: #7b6c94;
+        }
+        .nav-container {
+            background-color: rgba(255, 255, 240, 0.72);  /* Reduced from 0.8 to 0.72 */
+            padding: 10px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .nav-tabs li a {
+            color: #000000;
+            text-decoration: none;
+            font-size: 1.3em;
+            font-weight: 530;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: color 0.3s ease;
+            cursor: url('cursor.png') 0 0, pointer;
+        }
+        .nav-tabs li a:hover {
+            background-color: transparent;
+        }
+        /* Custom hover colors for each nav item */
+        .nav-tabs li a[href="aboutme.html"]:hover {
+            color: #a12d2e;  /* Dark red */
+        }
+        .nav-tabs li a[href="research.html"]:hover {
+            color: #da691d;  /* Orange */
+        }
+        .nav-tabs li a[href="publications.html"]:hover {
+            color: #DAA520;  /* Back to original yellow */
+        }
+        .nav-tabs li a[href="contact.html"]:hover {
+            color: #01714d;  /* Green */
+        }
+        .nav-tabs li a[href="NoraWolcott_CV.pdf"]:hover {
+            color: #0366b9;  /* Blue */
+        }
+        .nav-tabs li a.active {
+            background-color: transparent;
+            color: inherit;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.2em;
+            color: #2c3e50;
+            font-weight: normal;
+        }
+        .profile-image {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 50%;
+            display: block;
+            margin: 30px auto;
+        }
+        .profile-text {
+            margin-top: 30px;
+            background-color: rgba(255, 255, 240, 0.72);
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 90%;
+            margin: 50px 0;
+            text-align: left;
+            line-height: 1.4;
+        }
+        p {
+            font-size: 1.2em;
+            text-align: justify;
+        }
+        /* Tighter clickable areas for other elements */
+        a, button, input[type="submit"] {
+            padding: 2px 4px;
+            cursor: url('cursor.png') 0 0, pointer;  /* Custom cursor for interactive elements */
+        }
+        /* Exception for site title to maintain its spacing */
+        .site-title a {
+            padding: 0;
+            cursor: url('cursor.png') 0 0, pointer;  /* Custom cursor for interactive elements */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="site-title">
+            <a href="aboutme.html">Nora Wolcott, PhD</a>
+        </h1>
+        <nav class="nav-container">
+            <ul class="nav-tabs">
+                <li><a href="aboutme.html">About</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="NoraWolcott_CV.pdf" target="_blank">CV</a></li>
+            </ul>
+        </nav>
+
+        <img src="aboutme_pic.jpg" alt="Dr. Nora Wolcott" class="profile-image">
+        <h1>Dr. Nora Wolcott</h1>
+        
+        <div class="profile-text">
+            <p>Nora Wolcott, Ph.D. recently earned her Ph.D. in Molecular, Cellular, and Developmental Biology at UC Santa Barbara, where she was advised by Dr. Michael Goard. Her doctoral research employed in vivo two-photon microscopy to investigate how endogenous hormone cycles drive changes in spatial representations and neuronal morphology in the hippocampus.</p>
+            
+            <p>She will join the Datta Lab at Harvard University as a postdoctoral fellow in the fall, where she will study how hormones influence olfaction and other neural processes.</p>
+            
+            <p>Before graduate school, Nora worked with Dr. Michael Krashes at the NIH NIDDK, investigating the neural circuitry of feeding behavior. She also conducted Huntington's disease research using a sheep model in Dr. Russell Snell's lab at the University of Auckland. Nora earned her B.S. in Cellular and Molecular Biology from George Washington University, where she studied butterfly developmental genetics with Dr. Arnaud Martin.</p>
+            
+            <p>Nora pursues research at the intersection of systems neuroscience and women's health. She aims to advance our understanding of how steroid hormones shape the structural and functional architecture of the brain, and to help make neuroscience more inclusive, relevant, and responsive to the unique neurophysiological needs of women and underrepresented individuals.</p>
+        </div>
+    </div>
+</body>
+</html>
