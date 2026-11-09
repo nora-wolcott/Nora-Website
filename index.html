@@ -134,9 +134,13 @@ h3 { margin: 3rem 0 .25rem; font-size: 1rem; font-weight: 600; line-height: 1.4;
 p { margin: 0 0 1.15rem; max-width: 38rem; }
 .lead { color: var(--bright); }
 
-.about { display: grid; grid-template-columns: minmax(0, 1fr) 190px; gap: 3rem; align-items: start; }
+.about { display: grid; grid-template-columns: minmax(0, 1fr) 190px; gap: 2.5rem; align-items: center; max-width: 42rem; }
 .about p:last-child { margin-bottom: 0; }
-.portrait { position: relative; margin: .35rem 0 0; padding: 0; aspect-ratio: 1 / 1; border-radius: 12px; overflow: hidden; border: 1px solid rgba(110, 240, 166, .3); box-shadow: 0 0 44px rgba(61, 255, 140, .14); line-height: 0; }
+/* glowing rail behind the photo: fades in above it and out below it, tying the photo to the dendrite */
+.portrait-wrap { position: relative; align-self: stretch; display: grid; place-items: center; }
+.portrait-wrap::before { content: ""; position: absolute; top: 0; bottom: 0; left: 50%; width: 2px; transform: translateX(-50%); border-radius: 2px; background: linear-gradient(to bottom, rgba(61, 255, 140, 0), rgba(61, 255, 140, .85) 28%, rgba(61, 255, 140, .85) 72%, rgba(61, 255, 140, 0)); box-shadow: 0 0 14px 2px rgba(61, 255, 140, .35); }
+.portrait-wrap .portrait { width: 100%; }
+.portrait { position: relative; z-index: 1; margin: 0; padding: 0; aspect-ratio: 1 / 1; border-radius: 12px; overflow: hidden; border: 1px solid rgba(110, 240, 166, .3); box-shadow: 0 0 44px rgba(61, 255, 140, .14); line-height: 0; }
 .portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%; display: block; }
 
 .entries { margin: 0; padding: 0; list-style: none; max-width: 42rem; }
@@ -208,7 +212,8 @@ footer { padding: 5rem 0 3rem; font-size: .9rem; color: var(--muted); }
   main { margin-left: 0; padding-top: 56px; max-width: none; }
   #cv { min-height: 0; }
   .about { grid-template-columns: 1fr; gap: 1.75rem; }
-  .portrait { max-width: 190px; margin-top: 0; order: -1; }
+  .portrait-wrap { order: -1; display: block; max-width: 190px; }
+  .portrait-wrap::before { display: none; }
   .project { grid-template-columns: 1fr; }
   .entry.row { flex-direction: column; gap: .1rem; }
   .thumb { max-width: 220px; }
@@ -338,7 +343,7 @@ footer { padding: 5rem 0 3rem; font-size: .9rem; color: var(--muted); }
         <p class="lead">I am currently an NINDS K00 postdoctoral research fellow in the Datta Lab at Harvard Medical School, where I leverage deep learning techniques, molecular biology, and systems neuroscience to investigate how steroid hormones modulate neural circuits.</p>
         <p>Previously, I earned my Ph.D. in Molecular, Cellular, and Developmental Biology at UC Santa Barbara, where I was advised by Dr. Michael Goard. My doctoral research employed in vivo two-photon microscopy to investigate how endogenous hormone cycles drive changes in spatial representations and neuronal morphology in the hippocampus.</p>
       </div>
-      <figure class="portrait"><img src="aboutme_pic.jpg" alt="Portrait of Nora Wolcott" width="399" height="399"></figure>
+      <div class="portrait-wrap"><figure class="portrait"><img src="aboutme_pic.jpeg" alt="Portrait of Nora Wolcott"></figure></div>
     </div>
   </section>
 
