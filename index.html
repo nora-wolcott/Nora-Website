@@ -150,6 +150,15 @@ p { margin: 0 0 1.15rem; max-width: 38rem; }
 .entry .desc { margin: 0 0 .8rem; font-size: 1rem; }
 .entry .links { margin: 0; font-size: .95rem; display: flex; flex-wrap: wrap; gap: 0 1.25rem; }
 
+.entries.compact .entry { padding: 1rem 0; }
+.cite { margin: 0; font-size: 1rem; line-height: 1.6; }
+.cite strong { color: var(--bright); font-weight: 500; }
+.cite .ct { color: var(--bright); }
+.entry.row { display: flex; justify-content: space-between; align-items: baseline; gap: 1.5rem; }
+.entry.row .ct { color: var(--bright); transition: color .2s; }
+.entry.row:hover .ct { color: var(--gfp-soft); }
+.entry.row .when { flex: none; color: var(--muted); font-size: .95rem; white-space: nowrap; }
+
 .project { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 1.75rem; }
 .project.no-img { grid-template-columns: 1fr; }
 .thumb { display: block; line-height: 0; border-radius: 8px; overflow: hidden; border: 1px solid rgba(110, 240, 166, .22); align-self: start; background: #fff; }
@@ -188,6 +197,7 @@ footer { padding: 5rem 0 3rem; font-size: .9rem; color: var(--muted); }
   .about { grid-template-columns: 1fr; gap: 1.75rem; }
   .portrait { max-width: 190px; order: -1; }
   .project { grid-template-columns: 1fr; }
+  .entry.row { flex-direction: column; gap: .1rem; }
   .thumb { max-width: 220px; }
   .social-mobile { display: flex; gap: 1.25rem; list-style: none; margin: 0 0 2rem; padding: 0; }
   .social-mobile a { color: var(--muted); display: block; line-height: 0; }
@@ -344,7 +354,9 @@ footer { padding: 5rem 0 3rem; font-size: .9rem; color: var(--muted); }
         <div>
           <p class="title">Neural basis of spontaneous behavior</p>
           <p class="meta">Datta Lab, Harvard Medical School (current)</p>
-          <p class="desc">[One or two sentences on your postdoctoral project, as much as you can share publicly.]</p>
+          <p class="desc">In my current role I am using single-cell RNA sequencing to investigate how steroid hormones modulate sensory representations. By pinpointing the molecular changes in olfactory sensory neurons driven by steroids, we can identify cortical areas that are longitudinally remodeled by these hormones.</p>
+          <ul class="tags"><li>scRNA-seq</li><li>Two-photon imaging</li><li>Behavioral analysis</li></ul>
+          <p class="links" style="margin-top:.9rem"><a href="http://datta.hms.harvard.edu/" target="_blank" rel="noopener">Visit the Datta Lab website</a></p>
         </div>
       </li>
     </ul>
@@ -384,40 +396,38 @@ footer { padding: 5rem 0 3rem; font-size: .9rem; color: var(--muted); }
 
   <section class="sec" id="science-communication" aria-labelledby="h-scicomm">
     <h2 id="h-scicomm">Science Communication</h2>
-    <p class="lead">Explaining research to people who haven’t read the paper is part of the work. These are places I’ve done it.</p>
-    <h3>Talks</h3>
-    <ul class="entries">
-      <li class="entry">
-        <p class="title todo">[Talk title]</p>
-        <p class="meta">[Event or audience, year]</p>
-        <p class="desc todo">[One sentence on the audience and the takeaway.]</p>
-      </li>
-      <li class="entry">
-        <p class="title todo">[Talk title]</p>
-        <p class="meta">[Event or audience, year]</p>
-        <p class="desc todo">[One sentence.]</p>
-      </li>
+
+    <h3>Selected oral presentations</h3>
+    <ul class="entries compact">
+      <li class="entry"><p class="cite"><strong>Wolcott, N.</strong>, Jacobs, E. &amp; Goard, M. (2025, June). <span class="ct">Dynamic endocrine factors modulate hippocampal structure and function.</span> Society for Women’s Health Research Symposium, Albuquerque, NM.</p></li>
+      <li class="entry"><p class="cite"><strong>Wolcott, N.</strong>, Jacobs, E. &amp; Goard, M. (2023, May). <span class="ct">Chronic recording of hippocampus reveals sex differences in spatial navigation circuitry.</span> Organization for the Study of Sex Differences, Calgary, Alberta, CA.</p></li>
+      <li class="entry"><p class="cite"><strong>Wolcott, N.</strong>, Redman, W., Sit, K., Goard, M. (2022, October). <span class="ct">Investigating the role of steroid hormones in hippocampal plasticity.</span> MCDB/BMSE 25th Annual Symposium, Santa Barbara, CA.</p></li>
+      <li class="entry"><p class="cite"><strong>Wolcott, N.</strong> (2021, June). <span class="ct">Mechanisms of tau accumulation in hippocampus.</span> Lemelson Institute Biogen-MIT Biotech in Action, Massachusetts Institute of Technology, Boston, MA.</p></li>
     </ul>
+
+    <h3>Selected poster presentations</h3>
+    <ul class="entries compact">
+      <li class="entry"><p class="cite"><strong>Wolcott, N.</strong>, Redman, W., Jacobs, E. &amp; Goard, M. (2024, October). <span class="ct">The estrous cycle modulates hippocampal spine dynamics and spatial coding.</span> Society for Neuroscience, Chicago, IL.</p></li>
+      <li class="entry"><p class="cite"><strong>Wolcott, N.</strong>, Redman, W. &amp; Goard, M. (2024, March). <span class="ct">Hippocampal spatial representations are modulated by cyclic endocrine factors.</span> CoSyNe, Lisbon, Portugal.</p></li>
+      <li class="entry"><p class="cite"><strong>Wolcott, N.</strong>, Jacobs, E. &amp; Goard, M. (2023, May). <span class="ct">Chronic recording of hippocampus reveals sex differences in spatial navigation circuitry.</span> Organization for the Study of Sex Differences, Calgary, Alberta, CA.</p></li>
+    </ul>
+
     <h3>Writing and media</h3>
-    <ul class="entries">
-      <li class="entry">
-        <p class="title todo">[Article, podcast, or post title]</p>
-        <p class="meta">[Outlet, year]</p>
-        <p class="desc todo">[One sentence on the topic and who it was for.]</p>
-      </li>
+    <ul class="entries compact">
+      <li class="entry"><p class="cite">University of California, Santa Barbara, Graduate Division. (n.d.). <span class="ct">Commencement spotlight: Nora Wolcott ’25.</span> <em>Grad Div</em> (2025).</p></li>
+      <li class="entry"><p class="cite">Wyatt, S. <span class="ct">Spatial learning circuitry fluctuates in step with estrous cycle in mice.</span> <em>The Transmitter</em> (2025).</p></li>
+      <li class="entry"><p class="cite">Schindler, L. <span class="ct">Neuroscientist of the month: Nora Wolcott.</span> <em>Women’s Neuro Network</em> (2022).</p></li>
+      <li class="entry"><p class="cite"><strong>Wolcott, N.</strong> <span class="ct">Opinion: Neuroscientists Need to Think About Sex (Bias).</span> <em>The Scientist</em> (2021).</p></li>
     </ul>
-    <h3>Teaching and outreach</h3>
-    <ul class="entries">
-      <li class="entry">
-        <p class="title"><a href="https://doi.org/10.1242/jeb.208793" target="_blank" rel="noopener">Bringing CRISPR into undergraduate teaching labs</a></p>
-        <p class="meta">Journal of Experimental Biology (2020)</p>
-        <p class="desc">Co-authored a paper on bringing immersive, hands-on gene-editing experiments into undergraduate laboratory courses.</p>
-      </li>
-      <li class="entry">
-        <p class="title todo">[Program, course, or outreach event]</p>
-        <p class="meta">[Organization, years]</p>
-        <p class="desc todo">[One sentence on who you taught and what you covered.]</p>
-      </li>
+
+    <h3>Talks and outreach</h3>
+    <ul class="entries compact">
+      <li class="entry row"><span class="ct">ThorLabs Multiphoton Imaging Symposium</span><span class="when">October 2026</span></li>
+      <li class="entry row"><span class="ct">UCSB Donors of Graduate Division Symposium</span><span class="when">October 2025</span></li>
+      <li class="entry row"><span class="ct">Night Lizard Brewing Company Science Pub</span><span class="when">July 2024</span></li>
+      <li class="entry row"><span class="ct">MCDB/BMSE 25th Annual Symposium</span><span class="when">September 2022</span></li>
+      <li class="entry row"><span class="ct">Lemelson Institute Biogen-MIT Series</span><span class="when">June 2021</span></li>
+      <li class="entry row"><span class="ct">UCSB Grad Slam</span><span class="when">March 2021</span></li>
     </ul>
   </section>
 
