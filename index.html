@@ -160,8 +160,7 @@ p { margin: 0 0 1.15rem; max-width: 38rem; }
 
 .todo { color: var(--muted); font-style: italic; }
 
-.contact-card { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 2rem; align-items: center; max-width: 38rem; margin-top: 1.5rem; }
-.contact-card .portrait { margin: 0; }
+.contact-card { max-width: 38rem; margin-top: 1.5rem; }
 .contact-card p { margin: 0 0 .25rem; }
 .contact-card .email { font-size: 1.15rem; margin-top: .75rem; }
 
@@ -190,7 +189,6 @@ footer { padding: 5rem 0 3rem; font-size: .9rem; color: var(--muted); }
   .portrait { max-width: 190px; order: -1; }
   .project { grid-template-columns: 1fr; }
   .thumb { max-width: 220px; }
-  .contact-card { grid-template-columns: 110px minmax(0, 1fr); gap: 1.25rem; }
   .social-mobile { display: flex; gap: 1.25rem; list-style: none; margin: 0 0 2rem; padding: 0; }
   .social-mobile a { color: var(--muted); display: block; line-height: 0; }
   .social-mobile a:hover { color: var(--gfp); }
@@ -210,7 +208,7 @@ footer { padding: 5rem 0 3rem; font-size: .9rem; color: var(--muted); }
   <div class="side-head">
     <a class="logo" href="#about" aria-label="Back to top"><img src="images/logo.png" alt="Nora Wolcott logo"></a>
     <h1 class="name"><a href="#about">Nora Wolcott, PhD</a></h1>
-    <p class="role">Postdoctoral Research Fellow, Harvard Medical School</p>
+    <p class="role">Postdoctoral Research Fellow<br>Harvard Medical School</p>
     <p class="tag">Neuroscientist studying how hormones shape the brain, with a focus on women’s health.</p>
   </div>
   <nav class="dendrite-nav" aria-label="Sections">
@@ -430,7 +428,6 @@ footer { padding: 5rem 0 3rem; font-size: .9rem; color: var(--muted); }
     <h2 id="h-contact">Contact</h2>
     <p>I’m glad to talk about medical science liaison roles in women’s health, collaborations, or speaking. Email is the best way to reach me.</p>
     <div class="contact-card">
-      <figure class="portrait"><img src="contact_headshot.jpg" alt="Nora Wolcott outdoors with her dog" width="300" height="300" loading="lazy"></figure>
       <div>
         <p>Nora Wolcott, PhD<br>Department of Neurobiology<br>Harvard Medical School</p>
         <p class="email"><a href="mailto:nora_wolcott@hms.harvard.edu">nora_wolcott@hms.harvard.edu</a></p>
@@ -440,20 +437,7 @@ footer { padding: 5rem 0 3rem; font-size: .9rem; color: var(--muted); }
 
   <section class="sec" id="cv" aria-labelledby="h-cv">
     <h2 id="h-cv">CV</h2>
-    <p>The full CV has dates, publications, and details for each role.</p>
     <a class="btn" href="NoraWolcott_CV.pdf">Download CV (PDF)</a>
-    <h3>Education</h3>
-    <ul class="facts">
-      <li><b>PhD, Molecular, Cellular, and Developmental Biology</b>, UC Santa Barbara</li>
-      <li><b>B.S., Cellular and Molecular Biology; B.A., Music Performance</b>, George Washington University</li>
-    </ul>
-    <h3>Experience</h3>
-    <ul class="facts">
-      <li><b>Postdoctoral Research Fellow</b>, Datta Lab, Harvard Medical School</li>
-      <li><b>Research</b>, Krashes Lab, NIH NIDDK</li>
-      <li><b>Research</b>, Snell Lab, University of Auckland</li>
-      <li><b>Research</b>, Martin Lab, George Washington University</li>
-    </ul>
   </section>
 
   <footer>
