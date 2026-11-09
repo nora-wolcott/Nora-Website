@@ -1,156 +1,521 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - Nora Wolcott</title>
-    <style>
-        body {
-            cursor: url('cursor.png') 0 0, auto;  /* Custom cursor as default */
-            font-family: 'Palatino Linotype', 'Baskerville Old Face', Baskerville, 'Times New Roman', serif;
-            max-width: 800px;
-            margin: 60px auto;
-            line-height: 1.8;
-            color: #333;
-            background-image: url('background.png');
-            background-size: cover;
-            background-attachment: fixed;
-            background-position: center;
-            padding: 30px;
-        }
-        .container {
-            max-width: 700px;
-            margin: 0 auto;
-            background-color: rgba(255, 255, 240, 0.8);
-            padding: 30px 80px;
-            border-radius: 8px;
-        }
-        .site-title {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        .site-title a {
-            color: #000000;
-            text-decoration: none;
-            font-size: 1.7em;
-            font-weight: normal;
-            cursor: url('cursor.png') 0 0, pointer;  /* Custom cursor for interactive elements */
-        }
-        .site-title a:hover {
-            color: #7b6c94;
-        }
-        .nav-container {
-            background-color: rgba(255, 255, 240, 0.72);  /* Reduced from 0.8 to 0.72 */
-            padding: 10px;
-            border-radius: 8px;
-            margin: 20px 0;
-        }
-        .nav-tabs {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .nav-tabs li a {
-            color: #000000;
-            text-decoration: none;
-            font-size: 1.3em;
-            font-weight: 530;
-            padding: 5px 10px;
-            border-radius: 4px;
-            transition: color 0.3s ease;
-            cursor: url('cursor.png') 0 0, pointer;
-        }
-        .nav-tabs li a:hover {
-            background-color: transparent;
-        }
-        /* Custom hover colors for each nav item */
-        .nav-tabs li a[href="aboutme.html"]:hover {
-            color: #a12d2e;  /* Dark red */
-        }
-        .nav-tabs li a[href="research.html"]:hover {
-            color: #da691d;  /* Orange */
-        }
-        .nav-tabs li a[href="publications.html"]:hover {
-            color: #DAA520;  /* Back to original yellow */
-        }
-        .nav-tabs li a[href="contact.html"]:hover {
-            color: #01714d;  /* Green */
-        }
-        .nav-tabs li a[href="NoraWolcott_CV.pdf"]:hover {
-            color: #0366b9;  /* Blue */
-        }
-        .nav-tabs li a.active {
-            background-color: transparent;
-            color: inherit;
-        }
-        h1 {
-            text-align: center;
-            font-size: 2.2em;
-            color: #2c3e50;
-            font-weight: normal;
-        }
-        .profile-image {
-            width: 250px;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 50%;
-            display: block;
-            margin: 30px auto;
-        }
-        .profile-text {
-            margin-top: 30px;
-            background-color: rgba(255, 255, 240, 0.72);
-            padding: 30px;
-            border-radius: 8px;
-            max-width: 90%;
-            margin: 50px 0;
-            text-align: left;
-            line-height: 1.4;
-        }
-        p {
-            font-size: 1.2em;
-            text-align: justify;
-        }
-        /* Tighter clickable areas for other elements */
-        a, button, input[type="submit"] {
-            padding: 2px 4px;
-            cursor: url('cursor.png') 0 0, pointer;  /* Custom cursor for interactive elements */
-        }
-        /* Exception for site title to maintain its spacing */
-        .site-title a {
-            padding: 0;
-            cursor: url('cursor.png') 0 0, pointer;  /* Custom cursor for interactive elements */
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nora Wolcott, PhD — Neuroscientist focused on women’s health</title>
+<meta name="description" content="Nora Wolcott, PhD is a neuroscientist at Harvard Medical School studying how hormones shape the brain, with a focus on women’s health.">
+<meta name="theme-color" content="#05090c">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: dark;
+  --bg: #05090c;
+  --text: #b4c4bd;
+  --bright: #eaf4ef;
+  --muted: #7b8f87;
+  --gfp: #3dff8c;          /* glow */
+  --gfp-soft: #6ef0a6;     /* links, hot highlights */
+  --gfp-body: #22b865;     /* resting dendrite */
+  --line: rgba(110, 240, 166, .14);
+  --side: clamp(380px, 31vw, 460px);
+  --display: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+  --sans: "Geist", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(520px 720px at 0% 48%, rgba(61, 255, 140, .10), rgba(61, 255, 140, 0) 70%),
+    radial-gradient(900px 600px at 85% 0%, rgba(30, 90, 120, .10), rgba(30, 90, 120, 0) 70%);
+  background-attachment: fixed;
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: rgba(61, 255, 140, .28); color: #fff; }
+
+a { color: var(--gfp-soft); text-decoration: underline; text-decoration-color: rgba(110, 240, 166, .35); text-decoration-thickness: 1px; text-underline-offset: 3px; transition: color .2s, text-decoration-color .2s; }
+a:hover { color: #b9ffd6; text-decoration-color: currentColor; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--gfp); outline-offset: 3px; border-radius: 3px; }
+
+.skip { position: fixed; left: 1rem; top: -4rem; z-index: 100; padding: .5rem 1rem; background: var(--bg); border: 1px solid var(--gfp); color: var(--bright); }
+.skip:focus { top: 1rem; }
+
+/* ---------- sidebar ---------- */
+.sidebar { position: fixed; top: 0; left: 0; bottom: 0; width: var(--side); z-index: 20; display: flex; flex-direction: column; }
+.side-head { position: relative; z-index: 2; padding: clamp(1.5rem, 5.5vh, 3.25rem) 2rem 0 84px; }
+.logo { display: block; margin-bottom: 1.25rem; line-height: 0; }
+.logo img { height: 40px; width: auto; display: block; }
+.name { margin: 0; font-family: var(--display); font-weight: 400; font-size: clamp(2.1rem, 2.7vw, 2.5rem); line-height: 1.02; letter-spacing: -.01em; }
+.name a { color: var(--bright); text-decoration: none; }
+.role { margin: .85rem 0 0; color: var(--bright); font-weight: 500; font-size: 1rem; line-height: 1.45; }
+.tag { margin: .7rem 0 0; max-width: 21rem; font-size: .98rem; line-height: 1.6; color: var(--muted); }
+@media (max-height: 760px) { .tag { display: none; } }
+
+.dendrite-nav { position: relative; flex: 1 1 auto; min-height: 0; margin: .75rem 0 1.25rem; }
+.dendrite { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+
+.social { position: relative; z-index: 2; display: flex; gap: 1.15rem; list-style: none; margin: 0; padding: 0 2rem clamp(1.25rem, 4vh, 2.25rem) 84px; }
+.social a { display: block; color: var(--muted); line-height: 0; text-decoration: none; transition: color .2s, filter .2s; }
+.social a:hover, .social a:focus-visible { color: var(--gfp); filter: drop-shadow(0 0 6px rgba(61, 255, 140, .75)); }
+
+/* dendrite artwork */
+.shaft-glow { fill: var(--gfp); opacity: .38; }
+.fine path { fill: none; stroke: var(--gfp-body); stroke-width: 1.2; stroke-linecap: round; }
+.fine circle { fill: var(--gfp-body); }
+
+.spine { --c: var(--gfp-body); cursor: pointer; outline: none; }
+.spine:hover, .spine.active { --c: #7dffb4; }
+.spine .hit { fill: transparent; stroke: none; pointer-events: all; }
+.spine:focus-visible .hit { stroke: var(--gfp); stroke-width: 1.4; stroke-dasharray: 4 3; }
+
+.spine .halo { fill: none; stroke: var(--gfp); stroke-width: 12; stroke-linecap: round; filter: url(#blur); opacity: 0; transition: opacity .35s; }
+.spine .headhalo { fill: var(--gfp); filter: url(#blur); opacity: 0; transition: opacity .35s; }
+.spine:hover .halo, .spine:focus-visible .halo { opacity: .95; }
+.spine:hover .headhalo, .spine:focus-visible .headhalo { opacity: 1; }
+.spine.active .halo { opacity: .5; }
+.spine.active .headhalo { opacity: .8; }
+.spine.active:hover .halo { opacity: 1; }
+
+.spine .branch { fill: none; stroke: var(--c); stroke-width: 3.6; stroke-linecap: round; transition: stroke .3s; }
+.spine .flare { fill: none; stroke: var(--c); stroke-width: 9; stroke-linecap: round; transition: stroke .3s; }
+.spine .tick, .spine .twig { fill: none; stroke: var(--c); stroke-linecap: round; transition: stroke .3s; }
+.spine .tick { stroke-width: 1.4; }
+.spine .twig { stroke-width: 2; }
+.spine .tickdot, .spine .head { fill: var(--c); transition: fill .3s; }
+.spine .head { transform-box: fill-box; transform-origin: center; transition: fill .3s, transform .3s; }
+.spine:hover .head, .spine.active .head { transform: scale(1.35); fill: #d5ffe6; }
+.spine .signal { fill: none; stroke: #eafff2; stroke-width: 3.2; stroke-linecap: round; stroke-dasharray: .14 3; stroke-dashoffset: .14; opacity: 0; pointer-events: none; }
+.spine .pulse { fill: none; stroke: var(--gfp); stroke-width: 1.3; opacity: 0; transform-box: fill-box; transform-origin: center; }
+.spine.active .pulse { opacity: .5; }
+.spine .label { font-family: var(--sans); font-size: 15.5px; font-weight: 500; fill: var(--muted); transition: fill .3s; }
+.spine .letter { font-family: var(--display); font-style: italic; font-size: 14px; fill: #4d6258; transition: fill .3s; }
+.spine:hover .label, .spine:focus-visible .label { fill: var(--bright); }
+.spine.active .label { fill: var(--gfp-soft); }
+.spine.active .letter, .spine:hover .letter { fill: var(--gfp-soft); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .spine.active .pulse { animation: fire 2.8s ease-out infinite; }
+  @keyframes fire { 0% { transform: scale(1); opacity: .6; } 100% { transform: scale(3.4); opacity: 0; } }
+
+  /* click: a signal travels down the spine and the tip flashes */
+  .spine.firing .signal { opacity: 1; animation: travel .65s cubic-bezier(.45, 0, .75, .55) forwards; }
+  @keyframes travel { from { stroke-dashoffset: .14; } to { stroke-dashoffset: -1.15; } }
+  .spine.firing .head { animation: flash .6s .5s ease-out; }
+  @keyframes flash { 0% { transform: scale(1.35); } 40% { transform: scale(2.2); fill: #fff; } 100% { transform: scale(1.35); } }
+  .spine.firing .halo, .spine.firing .headhalo { animation: burst 1.2s .15s ease-out; }
+  @keyframes burst { from { opacity: 1; } }
+
+  /* the one load-in moment: spines grow out of the shaft */
+  .spine .branch { stroke-dasharray: 1; animation: grow 1.1s cubic-bezier(.3, .7, .3, 1) both; animation-delay: calc(.25s + var(--i) * .14s); }
+  .spine .flare, .spine .tick, .spine .twig, .spine .tickdot, .spine .label, .spine .letter {
+    animation: appear .6s ease-out both; animation-delay: calc(.55s + var(--i) * .14s);
+  }
+  @keyframes grow { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+  @keyframes appear { from { opacity: 0; } to { opacity: 1; } }
+}
+
+/* ---------- main ---------- */
+main { margin-left: var(--side); padding: 0 clamp(1.5rem, 6vw, 6rem); max-width: calc(var(--side) + 48rem); }
+.sec { padding: clamp(4.5rem, 12vh, 7.5rem) 0 1rem; min-height: 70vh; }
+.sec.first { padding-top: clamp(4rem, 11vh, 6.5rem); }
+h2 { margin: 0 0 2rem; font-family: var(--display); font-weight: 400; font-size: clamp(2.2rem, 3.6vw, 2.9rem); line-height: 1.05; letter-spacing: -.01em; color: var(--bright); }
+h3 { margin: 3rem 0 .25rem; font-size: 1rem; font-weight: 600; line-height: 1.4; color: var(--bright); }
+p { margin: 0 0 1.15rem; max-width: 38rem; }
+.lead { color: var(--bright); }
+
+.about { display: grid; grid-template-columns: minmax(0, 1fr) 190px; gap: 3rem; align-items: start; }
+.about p:last-child { margin-bottom: 0; }
+.portrait { margin: .35rem 0 0; padding: 0; border-radius: 12px; overflow: hidden; border: 1px solid rgba(110, 240, 166, .3); box-shadow: 0 0 44px rgba(61, 255, 140, .14); line-height: 0; }
+.portrait img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 30%; display: block; }
+
+.entries { margin: 0; padding: 0; list-style: none; max-width: 42rem; }
+.entry { position: relative; padding: 1.35rem 0; transition: opacity .25s; }
+.entry + .entry { border-top: 1px solid var(--line); }
+.entries:hover .entry:not(:hover):not(:focus-within) { opacity: .5; }
+.entry .title { margin: 0 0 .15rem; color: var(--bright); font-weight: 500; line-height: 1.45; transition: color .2s; }
+.entry .title a { color: inherit; text-decoration: none; }
+.entry:hover .title, .entry:focus-within .title { color: var(--gfp-soft); }
+.entry .meta { margin: 0 0 .5rem; font-size: .95rem; color: var(--muted); }
+.entry .meta strong { color: var(--bright); font-weight: 500; }
+.entry .desc { margin: 0 0 .8rem; font-size: 1rem; }
+.entry .links { margin: 0; font-size: .95rem; display: flex; flex-wrap: wrap; gap: 0 1.25rem; }
+
+.project { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 1.75rem; }
+.project.no-img { grid-template-columns: 1fr; }
+.thumb { display: block; line-height: 0; border-radius: 8px; overflow: hidden; border: 1px solid rgba(110, 240, 166, .22); align-self: start; background: #fff; }
+.thumb img { width: 100%; aspect-ratio: 1 / 1; object-fit: contain; display: block; opacity: .92; transition: opacity .25s; }
+.thumb:hover img { opacity: 1; }
+.tags { display: flex; flex-wrap: wrap; gap: .4rem; list-style: none; margin: .25rem 0 0; padding: 0; }
+.tags li { padding: .15rem .65rem; font-size: .8rem; line-height: 1.5; color: #8fe9b5; background: rgba(61, 255, 140, .07); border: 1px solid rgba(110, 240, 166, .22); border-radius: 999px; }
+
+.todo { color: var(--muted); font-style: italic; }
+
+.contact-card { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 2rem; align-items: center; max-width: 38rem; margin-top: 1.5rem; }
+.contact-card .portrait { margin: 0; }
+.contact-card p { margin: 0 0 .25rem; }
+.contact-card .email { font-size: 1.15rem; margin-top: .75rem; }
+
+.btn { display: inline-block; margin: .5rem 0 1rem; padding: .7rem 1.4rem; color: var(--gfp-soft); background: rgba(61, 255, 140, .06); border: 1px solid rgba(110, 240, 166, .5); border-radius: 6px; text-decoration: none; font-weight: 500; transition: box-shadow .25s, background .25s, color .25s; }
+.btn:hover, .btn:focus-visible { color: #fff; background: rgba(61, 255, 140, .14); box-shadow: 0 0 26px rgba(61, 255, 140, .3); }
+.facts { margin: 0; padding: 0; list-style: none; max-width: 38rem; }
+.facts li { padding: .35rem 0; }
+.facts b { color: var(--bright); font-weight: 500; }
+
+footer { padding: 5rem 0 3rem; font-size: .9rem; color: var(--muted); }
+.social-mobile { display: none; }
+
+/* ---------- small screens ---------- */
+.topbar, .menu-btn { display: none; }
+@media (max-width: 900px) {
+  .topbar { display: flex; justify-content: space-between; align-items: center; position: fixed; top: 0; left: 0; right: 0; z-index: 50; height: 56px; padding: 0 1rem; background: rgba(5, 9, 12, .92); border-bottom: 1px solid var(--line); backdrop-filter: blur(8px); }
+  .topbar .tname { font-family: var(--display); font-size: 1.45rem; color: var(--bright); text-decoration: none; }
+  .menu-btn { display: inline-block; font: inherit; font-size: .95rem; font-weight: 500; color: var(--gfp-soft); background: transparent; border: 1px solid rgba(110, 240, 166, .45); border-radius: 6px; padding: .3rem .9rem; cursor: pointer; pointer-events: auto; }
+  .sidebar { width: min(420px, 90vw); z-index: 40; background: var(--bg); border-right: 1px solid var(--line); transform: translateX(-102%); transition: transform .3s ease; box-shadow: 8px 0 40px rgba(0, 0, 0, .6); }
+  body.menu-open .sidebar { transform: none; }
+  body.menu-open .topbar { background: transparent; border-bottom-color: transparent; backdrop-filter: none; pointer-events: none; }
+  body.menu-open .topbar .tname { visibility: hidden; }
+  main { margin-left: 0; padding-top: 56px; max-width: none; }
+  .sec { min-height: 0; }
+  .about { grid-template-columns: 1fr; gap: 1.75rem; }
+  .portrait { max-width: 190px; order: -1; }
+  .project { grid-template-columns: 1fr; }
+  .thumb { max-width: 220px; }
+  .contact-card { grid-template-columns: 110px minmax(0, 1fr); gap: 1.25rem; }
+  .social-mobile { display: flex; gap: 1.25rem; list-style: none; margin: 0 0 2rem; padding: 0; }
+  .social-mobile a { color: var(--muted); display: block; line-height: 0; }
+  .social-mobile a:hover { color: var(--gfp); }
+}
+@media (max-width: 900px) and (prefers-reduced-motion: reduce) { .sidebar { transition: none; } }
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1 class="site-title">
-            <a href="aboutme.html">Nora Wolcott, PhD</a>
-        </h1>
-        <nav class="nav-container">
-            <ul class="nav-tabs">
-                <li><a href="aboutme.html">About</a></li>
-                <li><a href="research.html">Research</a></li>
-                <li><a href="publications.html">Publications</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="NoraWolcott_CV.pdf" target="_blank">CV</a></li>
-            </ul>
-        </nav>
+<a class="skip" href="#about">Skip to content</a>
 
-        <img src="aboutme_pic.jpg" alt="Dr. Nora Wolcott" class="profile-image">
-        <h1>Dr. Nora Wolcott</h1>
-        
-        <div class="profile-text">
-            <p>Nora Wolcott holds a PhD in Molecular, Cellular, and Developmental Biology from UC Santa Barbara, where she was advised by Dr. Michael Goard.  Her dissertation work centers on interrogating how hormone cycles drive changes in spatial representations in the hippocampus using two-photon microscopy. </p>
-            
-            <p>She received a B.S. in Cellular and Molecular Biology and a B.A. in Music Performance from George Washington University, where she first became interested in the genetic blueprint through her work in butterfly development with Dr. Arnaud Martin. Her interests expanded into neuroscience when Nora joined Russel Snell's lab at the University of Auckland, where she conducted Huntington's disease research using a sheep model. Before pursuing a PhD, she worked under Dr. Michael Krashes at the NIH NIDDK, where she investigated the neural circuits underlying feeding behavior.</p>
-            
-            <p>In her current role as a postdoctoral research fellow for the Datta Lab at Harvard Medical School, Nora is pursuing research at the intersection of systems neuroscience and molecular biology. Ultimately, she hopes to further our understanding of how steroid hormones shape the structural and functional architecture of the brain, and take steps towards making neuroscience accessible for and applicable to all.</p>
-        </div>
+<header class="topbar">
+  <a class="tname" href="#about">Nora Wolcott</a>
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="sidebar">Sections</button>
+</header>
+
+<aside class="sidebar" id="sidebar">
+  <div class="side-head">
+    <a class="logo" href="#about" aria-label="Back to top"><img src="images/logo.png" alt="Nora Wolcott logo"></a>
+    <h1 class="name"><a href="#about">Nora Wolcott, PhD</a></h1>
+    <p class="role">Postdoctoral Research Fellow, Harvard Medical School</p>
+    <p class="tag">Neuroscientist studying how hormones shape the brain, with a focus on women’s health.</p>
+  </div>
+  <nav class="dendrite-nav" aria-label="Sections">
+    <svg class="dendrite" viewBox="0 0 360 460" preserveAspectRatio="xMinYMid meet" role="group" aria-label="Section navigation, drawn as a neuron dendrite">
+  <defs>
+    <filter id="blur" filterUnits="userSpaceOnUse" x="-80" y="-140" width="560" height="740"><feGaussianBlur stdDeviation="5"/></filter>
+    <filter id="blurbig" x="-40%" y="0%" width="190%" height="100%"><feGaussianBlur stdDeviation="9"/></filter>
+    <linearGradient id="gfp" gradientUnits="userSpaceOnUse" x1="-8" y1="0" x2="48" y2="0">
+      <stop offset="0" stop-color="#0c6b3a"/><stop offset="1" stop-color="#27d377"/>
+    </linearGradient>
+  </defs>
+  <path class="shaft-glow" d="M -60 -900 L 17.2 -900 L 17.9 -892 L 18.4 -884 L 18.5 -876 L 18.2 -868 L 17.6 -860 L 17.0 -852 L 16.7 -844 L 17.0 -836 L 17.8 -828 L 19.2 -820 L 20.7 -812 L 22.0 -804 L 22.8 -796 L 23.0 -788 L 22.7 -780 L 22.1 -772 L 21.6 -764 L 21.5 -756 L 21.7 -748 L 22.4 -740 L 23.1 -732 L 23.6 -724 L 23.5 -716 L 22.9 -708 L 21.7 -700 L 20.2 -692 L 18.9 -684 L 17.9 -676 L 17.4 -668 L 17.6 -660 L 18.0 -652 L 18.5 -644 L 18.7 -636 L 18.4 -628 L 17.8 -620 L 17.0 -612 L 16.3 -604 L 16.1 -596 L 16.5 -588 L 17.5 -580 L 18.8 -572 L 20.3 -564 L 21.4 -556 L 22.0 -548 L 22.1 -540 L 21.8 -532 L 21.4 -524 L 21.1 -516 L 21.3 -508 L 21.9 -500 L 22.8 -492 L 23.6 -484 L 24.1 -476 L 24.0 -468 L 23.2 -460 L 22.0 -452 L 20.6 -444 L 19.3 -436 L 18.5 -428 L 18.3 -420 L 18.5 -412 L 18.9 -404 L 19.1 -396 L 19.0 -388 L 18.5 -380 L 17.6 -372 L 16.6 -364 L 15.9 -356 L 15.7 -348 L 16.2 -340 L 17.2 -332 L 18.6 -324 L 19.9 -316 L 20.8 -308 L 21.2 -300 L 21.2 -292 L 20.8 -284 L 20.5 -276 L 20.6 -268 L 21.1 -260 L 22.0 -252 L 23.0 -244 L 24.0 -236 L 24.4 -228 L 24.2 -220 L 23.4 -212 L 22.2 -204 L 20.9 -196 L 19.9 -188 L 19.3 -180 L 19.2 -172 L 19.5 -164 L 19.8 -156 L 19.9 -148 L 19.5 -140 L 18.6 -132 L 17.5 -124 L 16.4 -116 L 15.7 -108 L 15.5 -100 L 16.1 -92 L 17.1 -84 L 18.4 -76 L 19.5 -68 L 20.2 -60 L 20.3 -52 L 20.1 -44 L 19.8 -36 L 19.7 -28 L 20.0 -20 L 20.8 -12 L 21.9 -4 L 23.3 4 L 24.7 12 L 25.4 20 L 25.6 28 L 25.1 36 L 24.4 44 L 23.7 52 L 23.3 60 L 23.3 68 L 23.9 76 L 24.6 84 L 25.2 92 L 25.4 100 L 25.1 108 L 24.4 116 L 23.4 124 L 22.7 132 L 22.4 140 L 22.7 148 L 23.7 156 L 25.0 164 L 26.5 172 L 27.7 180 L 28.5 188 L 28.8 196 L 28.9 204 L 29.0 212 L 29.4 220 L 30.3 228 L 31.7 236 L 33.4 244 L 35.1 252 L 36.4 260 L 37.1 268 L 37.2 276 L 36.8 284 L 36.2 292 L 35.7 300 L 35.6 308 L 36.0 316 L 36.7 324 L 37.4 332 L 37.9 340 L 38.0 348 L 37.4 356 L 36.5 364 L 35.5 372 L 34.7 380 L 34.5 388 L 34.9 396 L 35.9 404 L 37.1 412 L 38.3 420 L 39.3 428 L 39.7 436 L 39.8 444 L 39.8 452 L 39.9 460 L 40.1 468 L 40.8 476 L 42.0 484 L 43.5 492 L 44.8 500 L 45.7 508 L 45.9 516 L 45.6 524 L 44.8 532 L 44.0 540 L 43.5 548 L 43.3 556 L 43.6 564 L 44.1 572 L 44.5 580 L 44.5 588 L 43.9 596 L 42.9 604 L 41.4 612 L 40.0 620 L 38.9 628 L 38.4 636 L 38.5 644 L 39.0 652 L 39.8 660 L 40.3 668 L 40.5 676 L 40.3 684 L 39.8 692 L 39.3 700 L 39.0 708 L 39.4 716 L 40.3 724 L 41.7 732 L 43.1 740 L 44.4 748 L 45.2 756 L 45.3 764 L 44.9 772 L 44.3 780 L 43.7 788 L 43.5 796 L 43.7 804 L 44.2 812 L 44.9 820 L 45.3 828 L 45.2 836 L 44.5 844 L 43.3 852 L 41.8 860 L 40.4 868 L 39.4 876 L 39.0 884 L 39.2 892 L 39.7 900 L 40.3 908 L 40.5 916 L 40.4 924 L 39.8 932 L 39.1 940 L 38.5 948 L 38.4 956 L 38.8 964 L 39.9 972 L 41.3 980 L 42.7 988 L 43.9 996 L 44.5 1004 L 44.5 1012 L 44.2 1020 L 43.7 1028 L 43.3 1036 L 43.4 1044 L 44.0 1052 L 44.8 1060 L 45.5 1068 L 45.9 1076 L 45.7 1084 L 44.9 1092 L 43.6 1100 L 42.1 1108 L 40.9 1116 L 40.1 1124 L 39.8 1132 L 40.1 1140 L 40.5 1148 L 40.8 1156 L 40.8 1164 L 40.3 1172 L 39.5 1180 L 38.6 1188 L 38.0 1196 L 37.9 1204 L 38.5 1212 L 39.6 1220 L 41.0 1228 L 42.3 1236 L 43.3 1244 L 43.7 1252 L 43.6 1260 L 43.2 1268 L 42.9 1276 L 42.9 1284 L 43.3 1292 L 44.1 1300 L 45.1 1308 L 45.9 1316 L 46.3 1324 L 46.0 1332 L 45.1 1340 L 43.9 1348 L 42.5 1356 L 41.4 1364 L 40.8 1372 L 40.8 1380 L 41.1 1388 L 41.4 1396 L -60 1400 Z" filter="url(#blurbig)"/>
+  <path class="shaft" d="M -60 -900 L 17.2 -900 L 17.9 -892 L 18.4 -884 L 18.5 -876 L 18.2 -868 L 17.6 -860 L 17.0 -852 L 16.7 -844 L 17.0 -836 L 17.8 -828 L 19.2 -820 L 20.7 -812 L 22.0 -804 L 22.8 -796 L 23.0 -788 L 22.7 -780 L 22.1 -772 L 21.6 -764 L 21.5 -756 L 21.7 -748 L 22.4 -740 L 23.1 -732 L 23.6 -724 L 23.5 -716 L 22.9 -708 L 21.7 -700 L 20.2 -692 L 18.9 -684 L 17.9 -676 L 17.4 -668 L 17.6 -660 L 18.0 -652 L 18.5 -644 L 18.7 -636 L 18.4 -628 L 17.8 -620 L 17.0 -612 L 16.3 -604 L 16.1 -596 L 16.5 -588 L 17.5 -580 L 18.8 -572 L 20.3 -564 L 21.4 -556 L 22.0 -548 L 22.1 -540 L 21.8 -532 L 21.4 -524 L 21.1 -516 L 21.3 -508 L 21.9 -500 L 22.8 -492 L 23.6 -484 L 24.1 -476 L 24.0 -468 L 23.2 -460 L 22.0 -452 L 20.6 -444 L 19.3 -436 L 18.5 -428 L 18.3 -420 L 18.5 -412 L 18.9 -404 L 19.1 -396 L 19.0 -388 L 18.5 -380 L 17.6 -372 L 16.6 -364 L 15.9 -356 L 15.7 -348 L 16.2 -340 L 17.2 -332 L 18.6 -324 L 19.9 -316 L 20.8 -308 L 21.2 -300 L 21.2 -292 L 20.8 -284 L 20.5 -276 L 20.6 -268 L 21.1 -260 L 22.0 -252 L 23.0 -244 L 24.0 -236 L 24.4 -228 L 24.2 -220 L 23.4 -212 L 22.2 -204 L 20.9 -196 L 19.9 -188 L 19.3 -180 L 19.2 -172 L 19.5 -164 L 19.8 -156 L 19.9 -148 L 19.5 -140 L 18.6 -132 L 17.5 -124 L 16.4 -116 L 15.7 -108 L 15.5 -100 L 16.1 -92 L 17.1 -84 L 18.4 -76 L 19.5 -68 L 20.2 -60 L 20.3 -52 L 20.1 -44 L 19.8 -36 L 19.7 -28 L 20.0 -20 L 20.8 -12 L 21.9 -4 L 23.3 4 L 24.7 12 L 25.4 20 L 25.6 28 L 25.1 36 L 24.4 44 L 23.7 52 L 23.3 60 L 23.3 68 L 23.9 76 L 24.6 84 L 25.2 92 L 25.4 100 L 25.1 108 L 24.4 116 L 23.4 124 L 22.7 132 L 22.4 140 L 22.7 148 L 23.7 156 L 25.0 164 L 26.5 172 L 27.7 180 L 28.5 188 L 28.8 196 L 28.9 204 L 29.0 212 L 29.4 220 L 30.3 228 L 31.7 236 L 33.4 244 L 35.1 252 L 36.4 260 L 37.1 268 L 37.2 276 L 36.8 284 L 36.2 292 L 35.7 300 L 35.6 308 L 36.0 316 L 36.7 324 L 37.4 332 L 37.9 340 L 38.0 348 L 37.4 356 L 36.5 364 L 35.5 372 L 34.7 380 L 34.5 388 L 34.9 396 L 35.9 404 L 37.1 412 L 38.3 420 L 39.3 428 L 39.7 436 L 39.8 444 L 39.8 452 L 39.9 460 L 40.1 468 L 40.8 476 L 42.0 484 L 43.5 492 L 44.8 500 L 45.7 508 L 45.9 516 L 45.6 524 L 44.8 532 L 44.0 540 L 43.5 548 L 43.3 556 L 43.6 564 L 44.1 572 L 44.5 580 L 44.5 588 L 43.9 596 L 42.9 604 L 41.4 612 L 40.0 620 L 38.9 628 L 38.4 636 L 38.5 644 L 39.0 652 L 39.8 660 L 40.3 668 L 40.5 676 L 40.3 684 L 39.8 692 L 39.3 700 L 39.0 708 L 39.4 716 L 40.3 724 L 41.7 732 L 43.1 740 L 44.4 748 L 45.2 756 L 45.3 764 L 44.9 772 L 44.3 780 L 43.7 788 L 43.5 796 L 43.7 804 L 44.2 812 L 44.9 820 L 45.3 828 L 45.2 836 L 44.5 844 L 43.3 852 L 41.8 860 L 40.4 868 L 39.4 876 L 39.0 884 L 39.2 892 L 39.7 900 L 40.3 908 L 40.5 916 L 40.4 924 L 39.8 932 L 39.1 940 L 38.5 948 L 38.4 956 L 38.8 964 L 39.9 972 L 41.3 980 L 42.7 988 L 43.9 996 L 44.5 1004 L 44.5 1012 L 44.2 1020 L 43.7 1028 L 43.3 1036 L 43.4 1044 L 44.0 1052 L 44.8 1060 L 45.5 1068 L 45.9 1076 L 45.7 1084 L 44.9 1092 L 43.6 1100 L 42.1 1108 L 40.9 1116 L 40.1 1124 L 39.8 1132 L 40.1 1140 L 40.5 1148 L 40.8 1156 L 40.8 1164 L 40.3 1172 L 39.5 1180 L 38.6 1188 L 38.0 1196 L 37.9 1204 L 38.5 1212 L 39.6 1220 L 41.0 1228 L 42.3 1236 L 43.3 1244 L 43.7 1252 L 43.6 1260 L 43.2 1268 L 42.9 1276 L 42.9 1284 L 43.3 1292 L 44.1 1300 L 45.1 1308 L 45.9 1316 L 46.3 1324 L 46.0 1332 L 45.1 1340 L 43.9 1348 L 42.5 1356 L 41.4 1364 L 40.8 1372 L 40.8 1380 L 41.1 1388 L 41.4 1396 L -60 1400 Z" fill="url(#gfp)"/>
+  <g class="fine"><path d="M20.2 -749.7Q26.0 -749.3 32.0 -747.2 M21.4 -734.3Q26.5 -733.0 31.6 -730.1 M22.0 -725.3Q26.3 -726.1 33.2 -728.7 M22.0 -714.5Q26.7 -715.5 28.4 -718.0 M19.9 -698.5Q23.0 -698.1 27.2 -697.8 M18.1 -688.5Q21.1 -684.7 26.2 -682.7 M16.6 -678.5Q21.2 -676.1 25.5 -672.7 M15.9 -665.7Q20.1 -668.4 22.0 -669.6 M16.6 -650.4Q24.1 -653.5 29.2 -658.1 M17.2 -635.3Q22.4 -635.1 30.0 -634.8 M16.3 -619.7Q23.5 -623.8 28.5 -627.3 M15.1 -607.8Q21.6 -608.9 25.1 -609.4 M14.6 -598.6Q20.8 -602.8 24.1 -607.0 M15.2 -585.6Q20.9 -585.3 28.2 -585.7 M17.3 -572.2Q20.5 -572.2 25.7 -571.3 M19.9 -555.8Q24.9 -558.8 31.1 -559.6 M20.6 -546.2Q26.3 -543.1 32.8 -541.0 M20.3 -531.8Q26.3 -526.6 32.9 -524.3 M19.6 -515.1Q26.6 -515.1 33.7 -514.4 M20.0 -504.2Q22.4 -501.2 27.3 -500.1 M21.6 -489.0Q27.1 -490.5 35.2 -490.5 M22.5 -477.6Q25.3 -479.0 30.7 -479.4 M21.9 -461.4Q26.9 -458.2 32.1 -453.4 M19.2 -444.8Q24.2 -445.9 32.0 -445.4 M17.1 -429.1Q24.0 -426.7 30.2 -423.9 M16.9 -415.4Q21.2 -414.0 25.3 -411.2 M17.5 -400.3Q23.0 -406.4 25.7 -409.7 M17.5 -386.5Q24.6 -386.3 31.2 -384.6 M16.4 -374.3Q21.0 -371.3 27.8 -365.9 M15.2 -364.5Q17.6 -367.3 22.3 -372.4 M14.2 -350.3Q18.1 -353.8 23.0 -357.3 M14.7 -339.5Q17.8 -341.3 21.7 -344.4 M16.7 -326.1Q22.2 -329.9 25.5 -335.2 M19.0 -310.8Q21.2 -314.1 26.0 -318.9 M19.7 -300.4Q24.7 -299.9 28.5 -298.2 M19.6 -291.1Q25.4 -292.9 28.8 -293.5 M19.1 -278.0Q25.2 -277.8 33.7 -278.2 M19.2 -265.0Q25.7 -262.3 33.4 -260.9 M20.5 -251.8Q25.2 -250.3 28.0 -251.7 M22.0 -239.9Q27.8 -243.9 36.0 -245.4 M22.8 -230.3Q28.7 -227.4 34.9 -225.2 M22.8 -221.2Q28.1 -220.8 33.2 -219.7 M21.5 -209.0Q24.5 -211.6 27.9 -212.6 M19.2 -194.3Q24.9 -192.6 30.9 -189.2 M17.9 -182.3Q25.3 -184.1 29.9 -183.6 M17.8 -169.4Q25.3 -169.2 30.5 -170.7 M18.3 -155.4Q25.3 -152.9 30.1 -151.5 M18.0 -140.9Q24.0 -144.0 30.7 -147.7 M16.2 -125.3Q20.7 -121.4 28.1 -116.4 M14.6 -113.8Q18.7 -116.2 22.5 -115.9 M14.0 -102.4Q19.2 -99.9 24.6 -95.0 M15.4 -85.8Q19.1 -84.4 23.8 -83.8 M17.6 -71.3Q23.6 -75.3 30.6 -77.8 M18.8 -55.6Q22.9 -58.9 28.9 -62.9 M18.7 -44.3Q25.5 -46.5 32.6 -48.3 M18.2 -30.4Q21.7 -32.8 25.8 -33.9 M18.5 -19.9Q22.3 -16.4 24.3 -15.6 M20.2 -5.3Q22.5 -9.0 27.5 -13.5 M22.8 9.3Q26.0 6.4 29.0 6.0 M24.0 20.8Q30.6 18.6 38.0 18.6 M21.8 65.0Q24.4 62.1 27.7 58.9 M22.3 75.8Q30.0 79.5 35.1 81.0 M23.1 84.9Q28.2 85.8 30.8 85.2 M23.9 100.0Q28.0 98.3 30.2 95.9 M20.9 142.1Q24.8 140.0 29.5 139.0 M22.2 156.1Q24.2 158.1 28.7 159.9 M24.7 170.5Q27.3 166.7 32.4 165.6 M26.6 183.5Q31.6 183.5 38.6 185.9 M27.5 213.3Q34.3 211.9 39.7 210.4 M28.1 222.9Q30.7 224.3 36.1 226.5 M30.2 236.2Q35.0 236.6 38.6 237.1 M32.4 246.4Q39.7 250.0 44.5 252.5 M34.5 257.2Q41.3 260.8 47.9 262.0 M34.1 302.6Q38.2 305.9 45.2 310.1 M34.5 316.5Q41.5 316.0 47.5 317.6 M36.0 333.0Q42.2 334.2 50.1 332.5 M33.5 376.5Q36.5 378.7 42.1 381.4 M33.0 386.9Q39.3 385.7 46.5 386.6 M33.4 396.2Q37.7 395.5 44.8 393.8 M34.8 406.9Q40.4 403.4 45.8 397.5 M38.3 453.3Q45.5 454.6 51.3 455.0 M38.4 464.3Q43.3 462.6 48.2 462.3 M39.5 477.6Q44.1 477.3 46.7 476.5 M42.2 493.0Q49.8 494.4 54.5 496.6 M43.9 505.2Q48.2 500.7 51.9 495.8 M44.2 522.1Q48.6 520.7 51.7 517.4 M43.0 535.0Q47.5 531.5 50.1 527.9 M42.0 547.7Q48.1 546.7 53.6 544.6 M42.1 563.6Q46.1 566.0 51.6 566.6 M42.9 579.0Q47.6 582.5 50.1 583.7 M43.0 588.6Q47.5 587.3 54.1 584.0 M42.0 599.7Q45.7 599.7 51.2 601.5 M39.8 612.7Q44.6 613.3 48.3 614.8 M37.5 626.9Q40.5 624.3 45.7 624.4 M36.9 641.4Q41.9 641.0 44.7 639.7 M37.4 650.6Q42.9 652.2 48.8 653.7 M38.8 667.3Q45.0 665.2 50.4 663.9 M39.0 679.1Q44.6 681.0 50.5 682.8 M38.4 689.9Q42.2 691.0 45.1 692.4 M37.7 700.6Q42.3 700.9 49.4 701.2 M37.6 711.0Q41.5 711.9 46.5 714.5 M38.3 720.3Q42.1 719.1 45.2 715.8 M40.0 731.1Q43.2 727.2 48.6 723.9 M42.7 746.2Q48.1 741.6 53.4 739.6 M43.7 757.1Q46.7 757.6 51.5 757.7 M43.4 772.7Q48.1 771.8 55.7 772.0 M42.5 784.2Q47.5 785.5 50.8 789.5 M42.0 797.2Q47.9 799.6 53.4 803.8 M42.9 813.6Q49.1 809.3 53.7 803.6 M43.7 826.9Q48.2 824.5 51.7 821.3 M43.5 839.0Q46.3 839.2 50.4 841.8 M42.0 850.6Q47.0 852.4 54.1 855.3 M40.2 860.5Q44.6 861.0 50.6 862.2 M37.9 876.4Q44.4 875.0 50.2 873.9 M37.6 889.9Q41.7 888.0 45.8 887.3 M38.3 901.5Q44.1 896.7 50.3 893.7 M38.9 910.7Q44.4 907.7 50.9 903.6 M39.0 921.6Q44.9 922.5 49.5 923.2 M38.2 933.6Q44.5 931.7 48.9 928.7 M37.1 946.4Q44.8 942.9 50.4 941.5 M37.1 960.9Q44.3 964.1 48.8 965.0 M38.4 971.8Q41.7 976.3 45.8 978.0 M40.2 982.2Q45.3 980.0 51.8 979.2 M42.5 997.5Q49.9 999.2 55.4 998.7 M43.0 1013.7Q49.7 1017.3 56.5 1019.7 M42.2 1026.8Q46.9 1031.0 52.0 1034.2 M41.8 1038.1Q44.7 1033.5 49.7 1031.9 M42.1 1047.9Q47.3 1047.3 55.1 1045.8 M43.0 1057.8Q47.5 1058.1 52.4 1057.1 M44.2 1070.1Q49.2 1068.0 56.6 1066.8 M44.2 1084.7Q50.2 1088.2 57.6 1091.0 M42.8 1096.2Q48.4 1097.3 56.2 1099.3 M39.9 1112.7Q46.5 1110.1 51.3 1108.9 M38.4 1128.0Q40.5 1123.8 44.7 1120.5 M38.5 1138.7Q42.1 1133.9 47.5 1128.7 M39.2 1152.1Q45.7 1154.2 51.5 1158.2 M39.2 1167.2Q44.0 1161.7 50.0 1157.7 M38.2 1177.9Q45.8 1177.0 51.2 1174.6 M36.7 1192.8Q40.3 1190.3 45.1 1188.3 M36.7 1208.7Q41.0 1212.5 42.6 1213.6 M38.3 1221.4Q43.9 1223.2 51.3 1224.3"/><circle cx="32.0" cy="-747.2" r="1.6"/><circle cx="31.6" cy="-730.1" r="1.6"/><circle cx="33.2" cy="-728.7" r="1.6"/><circle cx="28.4" cy="-718.0" r="1.6"/><circle cx="27.2" cy="-697.8" r="1.6"/><circle cx="26.2" cy="-682.7" r="1.6"/><circle cx="25.5" cy="-672.7" r="1.6"/><circle cx="22.0" cy="-669.6" r="1.6"/><circle cx="29.2" cy="-658.1" r="1.6"/><circle cx="30.0" cy="-634.8" r="1.6"/><circle cx="28.5" cy="-627.3" r="1.6"/><circle cx="25.1" cy="-609.4" r="1.6"/><circle cx="24.1" cy="-607.0" r="1.6"/><circle cx="28.2" cy="-585.7" r="1.6"/><circle cx="25.7" cy="-571.3" r="1.6"/><circle cx="31.1" cy="-559.6" r="1.6"/><circle cx="32.8" cy="-541.0" r="1.6"/><circle cx="32.9" cy="-524.3" r="1.6"/><circle cx="33.7" cy="-514.4" r="1.6"/><circle cx="27.3" cy="-500.1" r="1.6"/><circle cx="35.2" cy="-490.5" r="1.6"/><circle cx="30.7" cy="-479.4" r="1.6"/><circle cx="32.1" cy="-453.4" r="1.6"/><circle cx="32.0" cy="-445.4" r="1.6"/><circle cx="30.2" cy="-423.9" r="1.6"/><circle cx="25.3" cy="-411.2" r="1.6"/><circle cx="25.7" cy="-409.7" r="1.6"/><circle cx="31.2" cy="-384.6" r="1.6"/><circle cx="27.8" cy="-365.9" r="1.6"/><circle cx="22.3" cy="-372.4" r="1.6"/><circle cx="23.0" cy="-357.3" r="1.6"/><circle cx="21.7" cy="-344.4" r="1.6"/><circle cx="25.5" cy="-335.2" r="1.6"/><circle cx="26.0" cy="-318.9" r="1.6"/><circle cx="28.5" cy="-298.2" r="1.6"/><circle cx="28.8" cy="-293.5" r="1.6"/><circle cx="33.7" cy="-278.2" r="1.6"/><circle cx="33.4" cy="-260.9" r="1.6"/><circle cx="28.0" cy="-251.7" r="1.6"/><circle cx="36.0" cy="-245.4" r="1.6"/><circle cx="34.9" cy="-225.2" r="1.6"/><circle cx="33.2" cy="-219.7" r="1.6"/><circle cx="27.9" cy="-212.6" r="1.6"/><circle cx="30.9" cy="-189.2" r="1.6"/><circle cx="29.9" cy="-183.6" r="1.6"/><circle cx="30.5" cy="-170.7" r="1.6"/><circle cx="30.1" cy="-151.5" r="1.6"/><circle cx="30.7" cy="-147.7" r="1.6"/><circle cx="28.1" cy="-116.4" r="1.6"/><circle cx="22.5" cy="-115.9" r="1.6"/><circle cx="24.6" cy="-95.0" r="1.6"/><circle cx="23.8" cy="-83.8" r="1.6"/><circle cx="30.6" cy="-77.8" r="1.6"/><circle cx="28.9" cy="-62.9" r="1.6"/><circle cx="32.6" cy="-48.3" r="1.6"/><circle cx="25.8" cy="-33.9" r="1.6"/><circle cx="24.3" cy="-15.6" r="1.6"/><circle cx="27.5" cy="-13.5" r="1.6"/><circle cx="29.0" cy="6.0" r="1.6"/><circle cx="38.0" cy="18.6" r="1.6"/><circle cx="27.7" cy="58.9" r="1.6"/><circle cx="35.1" cy="81.0" r="1.6"/><circle cx="30.8" cy="85.2" r="1.6"/><circle cx="30.2" cy="95.9" r="1.6"/><circle cx="29.5" cy="139.0" r="1.6"/><circle cx="28.7" cy="159.9" r="1.6"/><circle cx="32.4" cy="165.6" r="1.6"/><circle cx="38.6" cy="185.9" r="1.6"/><circle cx="39.7" cy="210.4" r="1.6"/><circle cx="36.1" cy="226.5" r="1.6"/><circle cx="38.6" cy="237.1" r="1.6"/><circle cx="44.5" cy="252.5" r="1.6"/><circle cx="47.9" cy="262.0" r="1.6"/><circle cx="45.2" cy="310.1" r="1.6"/><circle cx="47.5" cy="317.6" r="1.6"/><circle cx="50.1" cy="332.5" r="1.6"/><circle cx="42.1" cy="381.4" r="1.6"/><circle cx="46.5" cy="386.6" r="1.6"/><circle cx="44.8" cy="393.8" r="1.6"/><circle cx="45.8" cy="397.5" r="1.6"/><circle cx="51.3" cy="455.0" r="1.6"/><circle cx="48.2" cy="462.3" r="1.6"/><circle cx="46.7" cy="476.5" r="1.6"/><circle cx="54.5" cy="496.6" r="1.6"/><circle cx="51.9" cy="495.8" r="1.6"/><circle cx="51.7" cy="517.4" r="1.6"/><circle cx="50.1" cy="527.9" r="1.6"/><circle cx="53.6" cy="544.6" r="1.6"/><circle cx="51.6" cy="566.6" r="1.6"/><circle cx="50.1" cy="583.7" r="1.6"/><circle cx="54.1" cy="584.0" r="1.6"/><circle cx="51.2" cy="601.5" r="1.6"/><circle cx="48.3" cy="614.8" r="1.6"/><circle cx="45.7" cy="624.4" r="1.6"/><circle cx="44.7" cy="639.7" r="1.6"/><circle cx="48.8" cy="653.7" r="1.6"/><circle cx="50.4" cy="663.9" r="1.6"/><circle cx="50.5" cy="682.8" r="1.6"/><circle cx="45.1" cy="692.4" r="1.6"/><circle cx="49.4" cy="701.2" r="1.6"/><circle cx="46.5" cy="714.5" r="1.6"/><circle cx="45.2" cy="715.8" r="1.6"/><circle cx="48.6" cy="723.9" r="1.6"/><circle cx="53.4" cy="739.6" r="1.6"/><circle cx="51.5" cy="757.7" r="1.6"/><circle cx="55.7" cy="772.0" r="1.6"/><circle cx="50.8" cy="789.5" r="1.6"/><circle cx="53.4" cy="803.8" r="1.6"/><circle cx="53.7" cy="803.6" r="1.6"/><circle cx="51.7" cy="821.3" r="1.6"/><circle cx="50.4" cy="841.8" r="1.6"/><circle cx="54.1" cy="855.3" r="1.6"/><circle cx="50.6" cy="862.2" r="1.6"/><circle cx="50.2" cy="873.9" r="1.6"/><circle cx="45.8" cy="887.3" r="1.6"/><circle cx="50.3" cy="893.7" r="1.6"/><circle cx="50.9" cy="903.6" r="1.6"/><circle cx="49.5" cy="923.2" r="1.6"/><circle cx="48.9" cy="928.7" r="1.6"/><circle cx="50.4" cy="941.5" r="1.6"/><circle cx="48.8" cy="965.0" r="1.6"/><circle cx="45.8" cy="978.0" r="1.6"/><circle cx="51.8" cy="979.2" r="1.6"/><circle cx="55.4" cy="998.7" r="1.6"/><circle cx="56.5" cy="1019.7" r="1.6"/><circle cx="52.0" cy="1034.2" r="1.6"/><circle cx="49.7" cy="1031.9" r="1.6"/><circle cx="55.1" cy="1045.8" r="1.6"/><circle cx="52.4" cy="1057.1" r="1.6"/><circle cx="56.6" cy="1066.8" r="1.6"/><circle cx="57.6" cy="1091.0" r="1.6"/><circle cx="56.2" cy="1099.3" r="1.6"/><circle cx="51.3" cy="1108.9" r="1.6"/><circle cx="44.7" cy="1120.5" r="1.6"/><circle cx="47.5" cy="1128.7" r="1.6"/><circle cx="51.5" cy="1158.2" r="1.6"/><circle cx="50.0" cy="1157.7" r="1.6"/><circle cx="51.2" cy="1174.6" r="1.6"/><circle cx="45.1" cy="1188.3" r="1.6"/><circle cx="42.6" cy="1213.6" r="1.6"/><circle cx="51.3" cy="1224.3" r="1.6"/></g>
+  <a class="spine" id="spine-about" href="#about" style="--i:0">
+  <rect class="hit" x="100" y="21" width="252" height="38" rx="4"/>
+  <path class="halo" d="M22.0 48.0C55.6 59.6 89.2 47.6 118.0 40.0"/>
+  <circle class="headhalo" cx="118" cy="40" r="8"/>
+  <path class="flare" d="M17.0 48.0L31.0 47.4"/>
+  <path class="branch" pathLength="1" d="M22.0 48.0C55.6 59.6 89.2 47.6 118.0 40.0"/>
+  <path class="tick" d="M52.1 52.8L52.1 60.5"/><circle class="tickdot" cx="52.1" cy="60.5" r="1.6"/><path class="tick" d="M81.4 49.4L80.4 44.3"/><circle class="tickdot" cx="80.4" cy="44.3" r="1.6"/><path class="tick" d="M100.2 44.9L102.0 51.8"/><circle class="tickdot" cx="102.0" cy="51.8" r="1.6"/><path class="twig" d="M66.9 51.9Q80.3 56.9 88.2 66.8"/><circle class="tickdot" cx="88.2" cy="66.8" r="2.4"/>
+  <path class="signal" pathLength="1" d="M22.0 48.0C55.6 59.6 89.2 47.6 118.0 40.0"/>
+  <circle class="pulse" cx="118" cy="40" r="5"/>
+  <circle class="head" cx="118" cy="40" r="4.8"/>
+  <text class="letter" x="131" y="44.5">a</text>
+  <text class="label" x="150" y="45.5">About</text>
+</a>
+<a class="spine" id="spine-research" href="#research" style="--i:1">
+  <rect class="hit" x="134" y="99" width="218" height="38" rx="4"/>
+  <path class="halo" d="M21.4 124.0C67.1 123.7 112.8 126.2 152.0 118.0"/>
+  <circle class="headhalo" cx="152" cy="118" r="8"/>
+  <path class="flare" d="M16.4 124.0L30.4 123.5"/>
+  <path class="branch" pathLength="1" d="M21.4 124.0C67.1 123.7 112.8 126.2 152.0 118.0"/>
+  <path class="tick" d="M62.4 124.1L62.4 129.6"/><circle class="tickdot" cx="62.4" cy="129.6" r="1.6"/><path class="tick" d="M102.3 123.6L102.0 116.9"/><circle class="tickdot" cx="102.0" cy="116.9" r="1.6"/><path class="tick" d="M127.8 121.7L128.3 127.1"/><circle class="tickdot" cx="128.3" cy="127.1" r="1.6"/>
+  <path class="signal" pathLength="1" d="M21.4 124.0C67.1 123.7 112.8 126.2 152.0 118.0"/>
+  <circle class="pulse" cx="152" cy="118" r="5"/>
+  <circle class="head" cx="152" cy="118" r="4.8"/>
+  <text class="letter" x="165" y="122.5">b</text>
+  <text class="label" x="184" y="123.5">Research</text>
+</a>
+<a class="spine" id="spine-publications" href="#publications" style="--i:2">
+  <rect class="hit" x="88" y="172" width="264" height="38" rx="4"/>
+  <path class="halo" d="M26.9 200.0C54.6 207.3 82.3 195.5 106.0 191.0"/>
+  <circle class="headhalo" cx="106" cy="191" r="8"/>
+  <path class="flare" d="M21.9 200.0L35.9 199.3"/>
+  <path class="branch" pathLength="1" d="M26.9 200.0C54.6 207.3 82.3 195.5 106.0 191.0"/>
+  <path class="tick" d="M51.7 202.1L52.0 207.2"/><circle class="tickdot" cx="52.0" cy="207.2" r="1.6"/><path class="tick" d="M75.9 198.2L74.5 192.4"/><circle class="tickdot" cx="74.5" cy="192.4" r="1.6"/><path class="tick" d="M91.3 194.3L92.6 199.6"/><circle class="tickdot" cx="92.6" cy="199.6" r="1.6"/><path class="twig" d="M63.9 200.6Q75.3 192.0 80.0 180.3"/><circle class="tickdot" cx="80.0" cy="180.3" r="2.4"/>
+  <path class="signal" pathLength="1" d="M26.9 200.0C54.6 207.3 82.3 195.5 106.0 191.0"/>
+  <circle class="pulse" cx="106" cy="191" r="5"/>
+  <circle class="head" cx="106" cy="191" r="4.8"/>
+  <text class="letter" x="119" y="195.5">c</text>
+  <text class="label" x="138" y="196.5">Publications</text>
+</a>
+<a class="spine" id="spine-science-communication" href="#science-communication" style="--i:3">
+  <rect class="hit" x="80" y="250" width="272" height="38" rx="4"/>
+  <path class="halo" d="M35.2 276.0C57.2 279.3 79.2 271.6 98.0 269.0"/>
+  <circle class="headhalo" cx="98" cy="269" r="8"/>
+  <path class="flare" d="M30.2 276.0L44.2 275.4"/>
+  <path class="branch" pathLength="1" d="M35.2 276.0C57.2 279.3 79.2 271.6 98.0 269.0"/>
+  <path class="tick" d="M54.9 276.4L55.3 281.6"/><circle class="tickdot" cx="55.3" cy="281.6" r="1.6"/><path class="tick" d="M74.1 273.5L72.6 265.8"/><circle class="tickdot" cx="72.6" cy="265.8" r="1.6"/><path class="tick" d="M86.3 271.0L87.9 278.8"/><circle class="tickdot" cx="87.9" cy="278.8" r="1.6"/>
+  <path class="signal" pathLength="1" d="M35.2 276.0C57.2 279.3 79.2 271.6 98.0 269.0"/>
+  <circle class="pulse" cx="98" cy="269" r="5"/>
+  <circle class="head" cx="98" cy="269" r="4.8"/>
+  <text class="letter" x="111" y="273.5">d</text>
+  <text class="label" x="130" y="274.5">Science Communication</text>
+</a>
+<a class="spine" id="spine-contact" href="#contact" style="--i:4">
+  <rect class="hit" x="122" y="325" width="230" height="38" rx="4"/>
+  <path class="halo" d="M35.8 352.0C72.2 350.6 108.7 345.5 140.0 344.0"/>
+  <circle class="headhalo" cx="140" cy="344" r="8"/>
+  <path class="flare" d="M30.8 352.0L44.8 351.4"/>
+  <path class="branch" pathLength="1" d="M35.8 352.0C72.2 350.6 108.7 345.5 140.0 344.0"/>
+  <path class="tick" d="M68.4 349.9L68.9 356.0"/><circle class="tickdot" cx="68.9" cy="356.0" r="1.6"/><path class="tick" d="M100.3 347.0L99.7 340.3"/><circle class="tickdot" cx="99.7" cy="340.3" r="1.6"/><path class="tick" d="M120.7 345.3L121.1 351.4"/><circle class="tickdot" cx="121.1" cy="351.4" r="1.6"/><path class="twig" d="M84.5 348.5Q97.8 354.0 105.4 364.1"/><circle class="tickdot" cx="105.4" cy="364.1" r="2.4"/>
+  <path class="signal" pathLength="1" d="M35.8 352.0C72.2 350.6 108.7 345.5 140.0 344.0"/>
+  <circle class="pulse" cx="140" cy="344" r="5"/>
+  <circle class="head" cx="140" cy="344" r="4.8"/>
+  <text class="letter" x="153" y="348.5">e</text>
+  <text class="label" x="172" y="349.5">Contact</text>
+</a>
+<a class="spine" id="spine-cv" href="#cv" style="--i:5">
+  <rect class="hit" x="102" y="403" width="250" height="38" rx="4"/>
+  <path class="halo" d="M37.3 428.0C66.2 426.6 95.2 427.0 120.0 422.0"/>
+  <circle class="headhalo" cx="120" cy="422" r="8"/>
+  <path class="flare" d="M32.3 428.0L46.3 427.5"/>
+  <path class="branch" pathLength="1" d="M37.3 428.0C66.2 426.6 95.2 427.0 120.0 422.0"/>
+  <path class="tick" d="M63.2 427.0L63.4 432.6"/><circle class="tickdot" cx="63.4" cy="432.6" r="1.6"/><path class="tick" d="M88.5 425.9L88.1 420.0"/><circle class="tickdot" cx="88.1" cy="420.0" r="1.6"/><path class="tick" d="M104.6 424.4L105.5 431.6"/><circle class="tickdot" cx="105.5" cy="431.6" r="1.6"/>
+  <path class="signal" pathLength="1" d="M37.3 428.0C66.2 426.6 95.2 427.0 120.0 422.0"/>
+  <circle class="pulse" cx="120" cy="422" r="5"/>
+  <circle class="head" cx="120" cy="422" r="4.8"/>
+  <text class="letter" x="133" y="426.5">f</text>
+  <text class="label" x="152" y="427.5">CV</text>
+</a>
+</svg>
+  </nav>
+  <ul class="social" aria-label="Profiles"><li><a href="https://github.com/NoraWolcott" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a></li><li><a href="https://www.linkedin.com/in/nora-wolcott-27672110b" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></li><li><a href="https://x.com/norawolcott" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" title="X (Twitter)"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></a></li><li><a href="https://www.researchgate.net/profile/Nora-Wolcott-2" target="_blank" rel="noopener noreferrer" aria-label="ResearchGate" title="ResearchGate"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><rect x="2.4" y="2.4" width="19.2" height="19.2" fill="none" stroke="currentColor" stroke-width="2"/><text x="4.6" y="18.2" font-family="Georgia, 'Times New Roman', serif" font-size="15.5" font-weight="bold" fill="currentColor">R</text><text x="14.2" y="11.2" font-family="Georgia, 'Times New Roman', serif" font-size="8.5" font-weight="bold" fill="currentColor">G</text></svg></a></li><li><a href="https://orcid.org/0000-0001-8055-2718" target="_blank" rel="noopener noreferrer" aria-label="ORCID" title="ORCID"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.025-5.325 5.025h-3.919V7.416zm1.444 1.303v7.444h2.297c3.272 0 3.872-2.484 3.872-3.722 0-2.016-1.284-3.722-3.872-3.722h-2.297z"/></svg></a></li></ul>
+</aside>
+
+<main>
+
+  <section class="sec first" id="about" aria-labelledby="h-about">
+    <h2 id="h-about">About</h2>
+    <div class="about">
+      <div>
+        <p class="lead">I’m a neuroscientist working at the intersection of systems neuroscience and molecular biology. I want to understand how steroid hormones shape the structure and function of the brain, and to help make neuroscience more relevant to women and underrepresented groups.</p>
+        <p>I earned my PhD in Molecular, Cellular, and Developmental Biology at UC Santa Barbara, advised by Dr. Michael Goard. My doctoral work used in vivo two-photon microscopy to show how hormone cycles change spatial representations and neuronal morphology in the hippocampus.</p>
+        <p>I’m now a postdoctoral research fellow in the Datta Lab at Harvard Medical School, investigating the neural basis of spontaneous behavior.</p>
+        <p>Before graduate school, I studied feeding circuits with Dr. Michael Krashes at the NIH NIDDK and Huntington’s disease in a sheep model with Dr. Russell Snell at the University of Auckland. I earned my B.S. in Cellular and Molecular Biology, and a B.A. in Music Performance, at George Washington University, where I studied butterfly developmental genetics with Dr. Arnaud Martin.</p>
+        <p>I’m now looking to bring this training to medical science liaison work in women’s health.</p>
+      </div>
+      <figure class="portrait"><img src="aboutme_pic.jpg" alt="Portrait of Nora Wolcott" width="399" height="399"></figure>
     </div>
+  </section>
+
+  <section class="sec" id="research" aria-labelledby="h-research">
+    <h2 id="h-research">Research</h2>
+    <ul class="entries">
+      <li class="entry project">
+        <a class="thumb" href="research/abstract.jpg" target="_blank" rel="noopener" aria-label="Open graphical abstract in a new tab"><img src="research/abstract.jpg" alt="Graphical abstract: longitudinal two-photon imaging across the estrous cycle shows changes in CA1 spine density and place cell stability" loading="lazy"></a>
+        <div>
+          <p class="title">Endocrine-modulated hippocampal plasticity</p>
+          <p class="desc">The hippocampus is densely populated with estrogen receptors, and ex vivo work has shown that the spines on apical CA1 pyramidal cell dendrites change with estrogen. What does that mean for function across the estrous cycle and pregnancy? Longitudinal in vivo imaging of dendritic spines in densely sampled mice, paired with analysis of spatial representations, shows that both neuronal morphology and spatial navigation are modulated by sex steroid hormone fluctuations.</p>
+          <ul class="tags"><li>Two-photon imaging</li><li>Hippocampus</li><li>Dendritic spines</li><li>Estrous cycle</li></ul>
+          <p class="links" style="margin-top:.9rem"><a href="https://doi.org/10.1016/j.neuron.2025.04.014" target="_blank" rel="noopener">Read the paper in Neuron</a></p>
+        </div>
+      </li>
+      <li class="entry project">
+        <a class="thumb" href="research/estrousnet.jpg" target="_blank" rel="noopener" aria-label="Open EstrousNet figure in a new tab"><img src="research/estrousnet.jpg" alt="EstrousNet pipeline: stained cytology images, image augmentation, ResNet50 training, and stage classification fit to an archetypal estrous cycle" loading="lazy"></a>
+        <div>
+          <p class="title">Automated classification of estrous cycle stage</p>
+          <p class="desc">Estrous phase is identified by vaginal lavage and cytology, but manual classification is error-prone, and fast, accurate staging is critical for neuroendocrine research. EstrousNet is a deep learning pipeline for unbiased classification. To mimic human classification more closely, it fits test images to an archetypal estrous cycle, which avoids common confusion errors. Its classifications surpass expert accuracy and speed.</p>
+          <ul class="tags"><li>Deep learning</li><li>MATLAB</li><li>Open-source software</li></ul>
+          <p class="links" style="margin-top:.9rem"><a href="https://doi.org/10.1038/s41598-022-22392-w" target="_blank" rel="noopener">Read the paper in Scientific Reports</a><a href="https://github.com/ucsb-goard-lab/EstrousNet" target="_blank" rel="noopener">Get EstrousNet on GitHub</a></p>
+        </div>
+      </li>
+      <li class="entry project no-img">
+        <div>
+          <p class="title">Neural basis of spontaneous behavior</p>
+          <p class="meta">Datta Lab, Harvard Medical School (current)</p>
+          <p class="desc">[One or two sentences on your postdoctoral project, as much as you can share publicly.]</p>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section class="sec" id="publications" aria-labelledby="h-publications">
+    <h2 id="h-publications">Publications</h2>
+    <ul class="entries">
+      <li class="entry">
+        <p class="title"><a href="https://doi.org/10.1016/j.neuron.2025.04.014" target="_blank" rel="noopener">The estrous cycle modulates hippocampal spine dynamics, dendritic processing, and spatial coding</a></p>
+        <p class="meta"><strong>Wolcott, N. S.</strong>, Redman, W. T., Karpinska, M., Jacobs, E. G., &amp; Goard, M. J. <em>Neuron</em> (2025)</p>
+        <p class="links"><a href="pdfs/wolcott_2025.pdf">PDF</a></p>
+      </li>
+      <li class="entry">
+        <p class="title"><a href="https://doi.org/10.7554/eLife.75391" target="_blank" rel="noopener">Long-term transverse imaging of the hippocampus with glass microperiscopes</a></p>
+        <p class="meta">Redman, W. T., <strong>Wolcott, N. S.</strong>, Montelisciani, L., Luna, G., Marks, T. D., Sit, K. K., Yu, C.-H., Smith, S., &amp; Goard, M. J. <em>eLife</em> (2022)</p>
+        <p class="links"><a href="pdfs/redman_2022.pdf">PDF</a></p>
+      </li>
+      <li class="entry">
+        <p class="title"><a href="https://doi.org/10.1038/s41598-022-22392-w" target="_blank" rel="noopener">Automated classification of estrous stage in rodents using deep learning</a></p>
+        <p class="meta"><strong>Wolcott, N. S.</strong>, Sit, K. K., Raimondi, G., Hodges, T., Shansky, R. M., Galea, L. A. M., Ostroff, L. E., &amp; Goard, M. J. <em>Scientific Reports</em> (2022)</p>
+        <p class="links"><a href="pdfs/wolcott_2022.pdf">PDF</a></p>
+      </li>
+      <li class="entry">
+        <p class="title"><a href="https://doi.org/10.1038/s41593-020-0684-9" target="_blank" rel="noopener">High-fat food biases hypothalamic and mesolimbic expression of consummatory drives</a></p>
+        <p class="meta">Mazzone, C. M., Liang-Guallpa, J., Li, C., <strong>Wolcott, N. S.</strong>, Boone, M. H., Southern, M., Kobzar, N. P., Salgado, I. de A., Reddy, D. M., Sun, F., Zhang, Y., Li, Y., Cui, G., &amp; Krashes, M. J. <em>Nature Neuroscience</em> (2020)</p>
+        <p class="links"><a href="pdfs/mazzone_2020.pdf">PDF</a></p>
+      </li>
+      <li class="entry">
+        <p class="title"><a href="https://doi.org/10.1242/jeb.208793" target="_blank" rel="noopener">Bringing immersive science to undergraduate laboratory courses using CRISPR gene knockouts in frogs and butterflies</a></p>
+        <p class="meta">Martin, A., <strong>Wolcott, N. S.</strong>, &amp; O’Connell, L. A. <em>Journal of Experimental Biology</em> (2020)</p>
+        <p class="links"><a href="pdfs/martin_2020.pdf">PDF</a></p>
+      </li>
+    </ul>
+    <p style="margin-top:1.75rem"><a href="https://scholar.google.com/citations?user=C74rCEEAAAAJ&amp;hl=en" target="_blank" rel="noopener">See all publications on Google Scholar</a></p>
+  </section>
+
+  <section class="sec" id="science-communication" aria-labelledby="h-scicomm">
+    <h2 id="h-scicomm">Science Communication</h2>
+    <p class="lead">Explaining research to people who haven’t read the paper is part of the work. These are places I’ve done it.</p>
+    <h3>Talks</h3>
+    <ul class="entries">
+      <li class="entry">
+        <p class="title todo">[Talk title]</p>
+        <p class="meta">[Event or audience, year]</p>
+        <p class="desc todo">[One sentence on the audience and the takeaway.]</p>
+      </li>
+      <li class="entry">
+        <p class="title todo">[Talk title]</p>
+        <p class="meta">[Event or audience, year]</p>
+        <p class="desc todo">[One sentence.]</p>
+      </li>
+    </ul>
+    <h3>Writing and media</h3>
+    <ul class="entries">
+      <li class="entry">
+        <p class="title todo">[Article, podcast, or post title]</p>
+        <p class="meta">[Outlet, year]</p>
+        <p class="desc todo">[One sentence on the topic and who it was for.]</p>
+      </li>
+    </ul>
+    <h3>Teaching and outreach</h3>
+    <ul class="entries">
+      <li class="entry">
+        <p class="title"><a href="https://doi.org/10.1242/jeb.208793" target="_blank" rel="noopener">Bringing CRISPR into undergraduate teaching labs</a></p>
+        <p class="meta">Journal of Experimental Biology (2020)</p>
+        <p class="desc">Co-authored a paper on bringing immersive, hands-on gene-editing experiments into undergraduate laboratory courses.</p>
+      </li>
+      <li class="entry">
+        <p class="title todo">[Program, course, or outreach event]</p>
+        <p class="meta">[Organization, years]</p>
+        <p class="desc todo">[One sentence on who you taught and what you covered.]</p>
+      </li>
+    </ul>
+  </section>
+
+  <section class="sec" id="contact" aria-labelledby="h-contact">
+    <h2 id="h-contact">Contact</h2>
+    <p>I’m glad to talk about medical science liaison roles in women’s health, collaborations, or speaking. Email is the best way to reach me.</p>
+    <div class="contact-card">
+      <figure class="portrait"><img src="contact_headshot.jpg" alt="Nora Wolcott outdoors with her dog" width="300" height="300" loading="lazy"></figure>
+      <div>
+        <p>Nora Wolcott, PhD<br>Department of Neurobiology<br>Harvard Medical School</p>
+        <p class="email"><a href="mailto:nora_wolcott@hms.harvard.edu">nora_wolcott@hms.harvard.edu</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="cv" aria-labelledby="h-cv">
+    <h2 id="h-cv">CV</h2>
+    <p>The full CV has dates, publications, and details for each role.</p>
+    <a class="btn" href="NoraWolcott_CV.pdf">Download CV (PDF)</a>
+    <h3>Education</h3>
+    <ul class="facts">
+      <li><b>PhD, Molecular, Cellular, and Developmental Biology</b>, UC Santa Barbara</li>
+      <li><b>B.S., Cellular and Molecular Biology; B.A., Music Performance</b>, George Washington University</li>
+    </ul>
+    <h3>Experience</h3>
+    <ul class="facts">
+      <li><b>Postdoctoral Research Fellow</b>, Datta Lab, Harvard Medical School</li>
+      <li><b>Research</b>, Krashes Lab, NIH NIDDK</li>
+      <li><b>Research</b>, Snell Lab, University of Auckland</li>
+      <li><b>Research</b>, Martin Lab, George Washington University</li>
+    </ul>
+  </section>
+
+  <footer>
+    <ul class="social-mobile" aria-label="Profiles"><li><a href="https://github.com/NoraWolcott" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a></li><li><a href="https://www.linkedin.com/in/nora-wolcott-27672110b" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></li><li><a href="https://x.com/norawolcott" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" title="X (Twitter)"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></a></li><li><a href="https://www.researchgate.net/profile/Nora-Wolcott-2" target="_blank" rel="noopener noreferrer" aria-label="ResearchGate" title="ResearchGate"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><rect x="2.4" y="2.4" width="19.2" height="19.2" fill="none" stroke="currentColor" stroke-width="2"/><text x="4.6" y="18.2" font-family="Georgia, 'Times New Roman', serif" font-size="15.5" font-weight="bold" fill="currentColor">R</text><text x="14.2" y="11.2" font-family="Georgia, 'Times New Roman', serif" font-size="8.5" font-weight="bold" fill="currentColor">G</text></svg></a></li><li><a href="https://orcid.org/0000-0001-8055-2718" target="_blank" rel="noopener noreferrer" aria-label="ORCID" title="ORCID"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.025-5.325 5.025h-3.919V7.416zm1.444 1.303v7.444h2.297c3.272 0 3.872-2.484 3.872-3.722 0-2.016-1.284-3.722-3.872-3.722h-2.297z"/></svg></a></li></ul>
+    © 2026 Nora Wolcott
+  </footer>
+</main>
+
+<script>
+(function () {
+  // Hide the logo if the file isn't there yet.
+  var logo = document.querySelector('.logo');
+  var img = logo.querySelector('img');
+  function hideLogo() { logo.style.display = 'none'; }
+  if (img.complete && img.naturalWidth === 0) hideLogo();
+  else img.addEventListener('error', hideLogo, { once: true });
+
+  // Scroll-spy
+  var spines = Array.prototype.slice.call(document.querySelectorAll('.spine'));
+  var sections = Array.prototype.slice.call(document.querySelectorAll('main section'));
+  var byId = {};
+  spines.forEach(function (s) { byId[s.getAttribute('href').slice(1)] = s; });
+
+  function setActive(id) {
+    spines.forEach(function (s) {
+      var on = s === byId[id];
+      s.classList.toggle('active', on);
+      if (on) s.setAttribute('aria-current', 'location'); else s.removeAttribute('aria-current');
+    });
+  }
+  function update() {
+    var atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
+    if (atBottom) { setActive(sections[sections.length - 1].id); return; }
+    var line = window.innerHeight * 0.35, current = sections[0].id;
+    sections.forEach(function (sec) { if (sec.getBoundingClientRect().top <= line) current = sec.id; });
+    setActive(current);
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+
+  // Click: fire a signal down the spine
+  spines.forEach(function (s) {
+    s.addEventListener('click', function () {
+      s.classList.remove('firing');
+      void s.getBoundingClientRect();
+      s.classList.add('firing');
+      setTimeout(function () { s.classList.remove('firing'); }, 1500);
+      setMenu(false);
+    });
+  });
+
+  // Mobile menu
+  var btn = document.querySelector('.menu-btn');
+  function setMenu(open) {
+    document.body.classList.toggle('menu-open', open);
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    btn.textContent = open ? 'Close' : 'Sections';
+  }
+  btn.addEventListener('click', function () { setMenu(!document.body.classList.contains('menu-open')); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
+})();
+</script>
 </body>
 </html>
